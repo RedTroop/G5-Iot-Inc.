@@ -19,7 +19,7 @@ public class ServizioLogin {
 		boolean ret = false;
 
 		ServizioUtenti serv = new ServizioUtenti();
-		Utente utenteTemp = serv.controlloIdentità(email, pwd);
+		Utente utenteTemp = serv.controlloIdentita(email, pwd);
 		if (utenteTemp != null) {
 			utenteLoggato = utenteTemp;
 

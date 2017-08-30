@@ -2,13 +2,13 @@ package integration.DAO;
 
 import java.util.List;
 
-public interface DAO<Entità> {
+public interface DAO<Entita> {
 
-	boolean inserisci(Entità e);
+	boolean inserisci(Entita e);
 	
-	boolean elimina(Entità e);
+	boolean elimina(Entita e);
 	
-	List<Entità> visualizzaTutti();
+	List<Entita> visualizzaTutti();
 	
-	List<Entità> cerca(String campo, String valore);
+	List<Entita> cerca(String campo, String valore);
 }

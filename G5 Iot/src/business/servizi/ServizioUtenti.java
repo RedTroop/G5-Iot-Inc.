@@ -41,7 +41,7 @@ public class ServizioUtenti implements CRUD<Utente> {
 		return ret;
 	}
 
-	public Utente controlloIdentità(String email, String pwd) {
+	public Utente controlloIdentita(String email, String pwd) {
 		Utente ret = null;
 		List<Utente> listaUtenti = daoUtente.cerca("email", email);
 		for (Utente usrTemp : listaUtenti) {
