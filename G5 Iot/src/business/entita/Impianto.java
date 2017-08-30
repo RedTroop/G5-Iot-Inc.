@@ -7,22 +7,22 @@ public class Impianto implements Entita {
 		this.cliente = cliente;
 	}
 
-	public Impianto(String iD, String nome, String cliente) {
-		ID = iD;
+	public Impianto(String id, String nome, String cliente) {
+		this.id = id;
 		this.nome = nome;
 		this.cliente = cliente;
 	}
 
-	private String ID;
+	private String id;
 	private String nome;
 	private String cliente;
 
 	public String getID() {
-		return ID;
+		return id;
 	}
 
-	public void setID(String iD) {
-		ID = iD;
+	public void setID(String id) {
+		this.id = id;
 	}
 
 	public String getNome() {

@@ -1,8 +1,8 @@
 package business.entita;
 
 public class Sensore implements Entita {
-	public Sensore(String iD, String modello, String impianto, String rilevazione, String tipo) {
-		ID = iD;
+	public Sensore(String id, String modello, String impianto, String rilevazione, String tipo) {
+		this.id = id;
 		this.modello = modello;
 		this.impianto = impianto;
 		this.rilevazione = rilevazione;
@@ -15,18 +15,18 @@ public class Sensore implements Entita {
 		this.tipo = tipo;
 	}
 
-	private String ID;
+	private String id;
 	private String modello;
 	private String impianto;
 	private String rilevazione;
 	private String tipo;
 
 	public String getID() {
-		return ID;
+		return id;
 	}
 
-	public void setID(String iD) {
-		ID = iD;
+	public void setID(String id) {
+		this.id = id;
 	}
 
 	public String getModello() {

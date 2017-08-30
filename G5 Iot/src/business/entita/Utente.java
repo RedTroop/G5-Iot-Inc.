@@ -3,7 +3,7 @@ package business.entita;
 public class Utente implements Entita {
 
 	public Utente(String id, String nome, String cognome, String email, String password, String admin) {
-		ID = id;
+		this.id = id;
 		this.nome = nome;
 		this.cognome = cognome;
 		this.email = email;
@@ -18,7 +18,7 @@ public class Utente implements Entita {
 		this.password = password;
 	}
 
-	private String ID;
+	private String id;
 	private String nome;
 	private String cognome;
 	private String email;
@@ -26,11 +26,11 @@ public class Utente implements Entita {
 	private String admin;
 
 	public String getID() {
-		return ID;
+		return id;
 	}
 
 	public void setID(String id) {
-		ID = id;
+		this.id = id;
 	}
 
 	public String getNome() {

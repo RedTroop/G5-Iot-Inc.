@@ -9,13 +9,12 @@ public class ServizioModelli implements CRUD<ModelloSensore> {
 
 	private DaoModelloSensore daoModello = new DaoModelloSensore();
 
-	
 	@Override
 	public boolean inserisci(Object oggetto) {
 		boolean ret = false;
 		if (oggetto instanceof ModelloSensore) {
 			ModelloSensore mod = (ModelloSensore) oggetto;
-			 ret = daoModello.inserisci(mod);
+			ret = daoModello.inserisci(mod);
 		}
 		return ret;
 	}
@@ -34,12 +33,12 @@ public class ServizioModelli implements CRUD<ModelloSensore> {
 	public List<ModelloSensore> visualizzaTutti() {
 		List<ModelloSensore> ret = daoModello.visualizzaTutti();
 		return ret;
-		}
+	}
 
 	@Override
 	public List<ModelloSensore> cerca(String campo, String valore) {
 		List<ModelloSensore> ret = daoModello.cerca(campo, valore);
 		return ret;
-		}
+	}
 
 }
