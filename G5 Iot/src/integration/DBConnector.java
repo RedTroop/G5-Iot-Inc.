@@ -1,8 +1,15 @@
 package integration;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.InvalidPropertiesFormatException;
+import java.util.Properties;
 
 /**
  * Classe (Pattern: singleton) per la connessione ad un DB
@@ -11,7 +18,7 @@ import java.sql.SQLException;
  *
  */
 public class DBConnector {
-	
+
 	/**
 	 * Connessione a MySQL (sessione)
 	 */
@@ -23,20 +30,46 @@ public class DBConnector {
 	private static final DBConnector ISTANZA = new DBConnector();
 
 	/**
-	 * Costruttore privato per la classe, contentente le credenziali di accesso al server
+	 * Costruttore privato per la classe, contentente le credenziali di accesso
+	 * al server
 	 */
 	private DBConnector() {
 
+		String databaseUser = null;
+		String databasePwd = null;
+		String databaseUri = null;
+		InputStream in = null;
+
 		try {
+
+			// ottengo informazioni su db, user e pwd dal file dbconfig.ini
+			File f = new File("C:" + File.separatorChar + "Users" + File.separatorChar + "redtr_000" + File.separatorChar
+					+ "workspace" + File.separatorChar + "G5 Iot" + File.separatorChar + ".settings" + File.separatorChar
+					+ "dbconfig.ini");
+			
+			in = new FileInputStream(f);
+			Properties props = new Properties();
+			props.loadFromXML(in);
+
+			databaseUri = props.getProperty("URI");
+			databaseUser = props.getProperty("USER_NAME");
+			databasePwd = props.getProperty("PASSWORD");
+
 			new com.mysql.jdbc.Driver();
 
-			connessione = DriverManager.getConnection("jdbc:mysql://localhost/test", "root", "slipknot94");
+			connessione = DriverManager.getConnection(databaseUri, databaseUser, databasePwd);
 
 			System.out.println("Database Connected! :D");
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.err.println("Database NOT Connected! :(");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (InvalidPropertiesFormatException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 
@@ -46,7 +79,7 @@ public class DBConnector {
 	public Connection getConnessione() {
 		return connessione;
 	}
-	
+
 	/**
 	 * @param connessione
 	 *            La connessione da impostare
