@@ -7,8 +7,7 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
-
-import business.entità.Sensore;
+import business.entita.Sensore;
 import integration.DBConnector;
 
 

@@ -3,9 +3,9 @@ package presentation.view;
 import java.util.Iterator;
 import java.util.List;
 
-import business.entità.ModelloSensore;
-import business.entità.Sensore;
-import business.entità.Tipo;
+import business.entita.ModelloSensore;
+import business.entita.Sensore;
+import business.entita.Tipo;
 import business.servizi.ServizioModelli;
 import business.servizi.ServizioSensori;
 import business.servizi.ServizioTipi;

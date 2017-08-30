@@ -3,9 +3,9 @@ package presentation.view;
 import java.util.Iterator;
 import java.util.List;
 
-import business.entità.Impianto;
-import business.entità.Sensore;
-import business.entità.Tipo;
+import business.entita.Impianto;
+import business.entita.Sensore;
+import business.entita.Tipo;
 import business.servizi.ServizioSensori;
 import business.servizi.ServizioTipi;
 import javafx.collections.FXCollections;

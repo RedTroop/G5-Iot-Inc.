@@ -2,7 +2,7 @@ package business.servizi;
 
 import java.util.List;
 
-import business.entità.Sensore;
+import business.entita.Sensore;
 import integration.DAO.DaoSensore;
 
 public class ServizioSensori implements CRUD<Sensore> {

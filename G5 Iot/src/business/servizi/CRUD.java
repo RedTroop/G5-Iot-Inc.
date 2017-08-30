@@ -2,9 +2,9 @@ package business.servizi;
 
 import java.util.List;
 
-import business.entità.Entità;
+import business.entita.Entita;
 
-public interface CRUD<T> extends Entità {
+public interface CRUD<T> extends Entita {
 
 	boolean inserisci(Object oggetto);
 

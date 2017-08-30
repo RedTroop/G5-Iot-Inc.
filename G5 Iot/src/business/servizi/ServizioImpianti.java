@@ -2,7 +2,7 @@ package business.servizi;
 
 import java.util.List;
 
-import business.entità.Impianto;
+import business.entita.Impianto;
 import integration.DAO.DaoImpianto;
 import integration.DAO.DaoImpianto.coppia;
 

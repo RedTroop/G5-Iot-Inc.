@@ -3,7 +3,7 @@ package presentation.view;
 import java.io.IOException;
 import java.util.List;
 
-import business.entità.ModelloSensore;
+import business.entita.ModelloSensore;
 import business.servizi.ServizioModelli;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

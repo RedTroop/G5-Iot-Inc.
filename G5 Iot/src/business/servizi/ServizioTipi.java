@@ -2,7 +2,7 @@ package business.servizi;
 
 import java.util.List;
 
-import business.entità.Tipo;
+import business.entita.Tipo;
 import integration.DAO.DaoTipo;
 
 public class ServizioTipi implements CRUD<Tipo> {

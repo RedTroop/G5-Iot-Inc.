@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 
-import business.entità.ModelloSensore;
-import business.entità.Tipo;
+import business.entita.ModelloSensore;
+import business.entita.Tipo;
 import business.servizi.ServizioModelli;
 import business.servizi.ServizioTipi;
 import javafx.collections.FXCollections;

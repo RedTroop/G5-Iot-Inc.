@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
-import business.entità.Utente;
+import business.entita.Utente;
 import business.servizi.ServizioImpianti;
 import business.servizi.ServizioLogin;
 import integration.DAO.DaoImpianto.coppia;

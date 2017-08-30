@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
-import business.entità.Utente;
+import business.entita.Utente;
 import integration.DBConnector;
 
 public class DaoUtente implements DAO<Utente> {

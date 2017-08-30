@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
-import business.entità.ModelloSensore;
+import business.entita.ModelloSensore;
 import integration.DBConnector;
 
 public class DaoModelloSensore implements DAO<ModelloSensore> {

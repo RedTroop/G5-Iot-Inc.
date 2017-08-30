@@ -1,6 +1,6 @@
 package business.servizi;
 
-import business.entità.Utente;
+import business.entita.Utente;
 
 public class ServizioLogin {
 	private static final String MENOUNO = "-1";

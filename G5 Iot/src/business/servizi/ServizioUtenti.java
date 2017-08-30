@@ -2,7 +2,7 @@ package business.servizi;
 
 import java.util.List;
 
-import business.entità.Utente;
+import business.entita.Utente;
 import integration.DAO.DaoUtente;
 
 public class ServizioUtenti implements CRUD<Utente> {

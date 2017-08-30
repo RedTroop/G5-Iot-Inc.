@@ -6,8 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
-import business.entità.Impianto;
-import business.entità.Utente;
+
+import business.entita.Impianto;
+import business.entita.Utente;
 import integration.DBConnector;
 
 public class DaoImpianto implements DAO<Impianto> {

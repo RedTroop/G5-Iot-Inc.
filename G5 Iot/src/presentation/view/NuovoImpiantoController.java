@@ -1,7 +1,7 @@
 package presentation.view;
 
-import business.entità.Impianto;
-import business.entità.Utente;
+import business.entita.Impianto;
+import business.entita.Utente;
 import business.servizi.ServizioImpianti;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
