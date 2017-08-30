@@ -87,6 +87,15 @@ public class LoginController {
 
 	}
 
+	/**
+	 * Avvisa se il login è avvenuto con successo
+	 * 
+	 * @param email
+	 *            email dell'utente
+	 * @param pass
+	 *            password dell'utente
+	 * @return
+	 */
 	private boolean verificaLogin(String email, String pass) {
 
 		boolean resLogin = ServizioLogin.effettuaLogin(email, pass);
@@ -96,7 +105,7 @@ public class LoginController {
 		String aContent = "";
 
 		if (resLogin) {
-			
+
 			aContent = "Login avvenuto con successo!";
 			alert = new Alert(AlertType.INFORMATION);
 
