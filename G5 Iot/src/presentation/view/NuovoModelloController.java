@@ -38,6 +38,9 @@ public class NuovoModelloController {
 
 	private ObservableList<Tipo> tableTipiData = FXCollections.observableArrayList();
 
+	/**
+	 * Inizializza le azioni relative ai pulsanti e riempie la tableview
+	 */
 	@FXML
 	private void initialize() {
 

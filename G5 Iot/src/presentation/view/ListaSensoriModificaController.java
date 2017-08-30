@@ -51,16 +51,19 @@ public class ListaSensoriModificaController {
 	@FXML
 	private Button eliminaButton;
 
+	/**
+	 * Inizializza le azioni relative ai pulsanti e riempie la tableview
+	 */
 	@SuppressWarnings("unchecked")
 	@FXML
 	private void initialize() {
-		
-		//INSERISCI SENSORE
+
+		// INSERISCI SENSORE
 		nuovoButton.setOnAction((event) -> {
 			goScene("presentation/view/NuovoSensore.fxml");
 		});
 
-		//ELIMINA SENSORE
+		// ELIMINA SENSORE
 		eliminaButton.setDisable(true);
 		eliminaButton.setOnAction((event) -> {
 			Alert alert = new Alert(AlertType.CONFIRMATION);
@@ -145,7 +148,7 @@ public class ListaSensoriModificaController {
 
 		Iterator<Tipo> it = tableTipiData.iterator();
 
-		//FILTRI
+		// FILTRI
 		while (it.hasNext()) {
 			MenuItem item = new MenuItem(it.next().getTipo());
 			item.setOnAction(a -> { // lambda expression
@@ -169,7 +172,7 @@ public class ListaSensoriModificaController {
 
 	}
 
-	//METODI SERVIZIO
+	// METODI SERVIZIO
 	private void riempiTable(Impianto i) {
 		tableSensori.getItems().clear();
 

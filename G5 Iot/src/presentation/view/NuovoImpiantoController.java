@@ -18,6 +18,9 @@ public class NuovoImpiantoController {
 
 	ServizioImpianti servizioI = new ServizioImpianti();
 
+	/**
+	 * Inizializza le azioni relative ai pulsanti e riempie la tableview
+	 */
 	@FXML
 	private void initialize() {
 

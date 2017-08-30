@@ -2,12 +2,20 @@ package business.servizi;
 
 import business.entita.Utente;
 
+/**
+ * Classe (pattern: singleton) per login e sessione dell'utente
+ * 
+ * @author redtr_000
+ *
+ */
 public class ServizioLogin {
 	private static final String MENOUNO = "-1";
-	//private static final ServizioLogin ISTANZA = new ServizioLogin();
+	// private static final ServizioLogin ISTANZA = new ServizioLogin();
 	private static Utente utenteLoggato = new Utente(MENOUNO, "", "", "", "", "0");
 
-	// costrutture privato
+	/**
+	 * Costruttore privato per la classe
+	 */
 	private ServizioLogin() {
 	}
 
@@ -23,8 +31,9 @@ public class ServizioLogin {
 		if (utenteTemp != null) {
 			utenteLoggato = utenteTemp;
 
-			System.out.println(utenteLoggato.getEmail() + " " + utenteLoggato.getPassword() + " " + utenteLoggato.getAdmin());
-			
+			System.out.println(
+					utenteLoggato.getEmail() + " " + utenteLoggato.getPassword() + " " + utenteLoggato.getAdmin());
+
 			ret = true;
 		} else {
 			utenteLoggato = new Utente(MENOUNO, "", "", "", "", "0");

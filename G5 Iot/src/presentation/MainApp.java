@@ -25,6 +25,9 @@ public class MainApp extends Application {
 		showLogin();
 	}
 
+	/**
+	 * Imposta lo stage principale e lo mostra
+	 */
 	private void initRootLayout() {
 		try {
 			// Load root layout from fxml file.

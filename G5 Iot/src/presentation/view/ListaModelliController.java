@@ -37,6 +37,9 @@ public class ListaModelliController {
 	@FXML
 	private AnchorPane content;
 
+	/**
+	 * Inizializza le azioni relative ai pulsanti e riempie la tableview
+	 */
 	@SuppressWarnings("unchecked")
 	@FXML
 	private void initialize() {

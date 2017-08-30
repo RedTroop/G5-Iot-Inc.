@@ -65,9 +65,16 @@ public class ServizioSensori implements CRUD<Sensore> {
 
 	}
 
+	/**
+	 * Traduce le rilevazioni nello standard definito
+	 * 
+	 * @param rilevazione
+	 *            stringa da tradurre
+	 * @return stringa tradotta
+	 */
 	private String formattaString(String rilevazione) {
 		// char[] ril = rilevazione.toCharArray();
-		
+
 		String format = null;
 		if (rilevazione.length() > 3) {
 			String descr = rilevazione.substring(rilevazione.length() - 3);

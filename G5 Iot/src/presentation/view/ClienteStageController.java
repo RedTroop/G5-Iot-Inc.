@@ -29,9 +29,12 @@ public class ClienteStageController {
 
 	}
 
+	/**
+	 * Carica e visualizza la homepage (lista impianti cliente)
+	 */
 	private void goHome() {
 		AnchorPane newLoadedPane;
-		System.out.println("Matteo Lac Impianto!");
+		System.out.println("Visualizza Impianto!");
 		try {
 			newLoadedPane = FXMLLoader
 					.load(getClass().getClassLoader().getResource("presentation/view/ListaImpianti.fxml"));

@@ -33,6 +33,9 @@ public class NuovoSensoreController {
 	@FXML
 	private ComboBox<String> menuTipo;
 
+	/**
+	 * Inizializza le azioni relative ai pulsanti e riempie la tableview
+	 */
 	@FXML
 	private void initialize() {
 
@@ -52,17 +55,17 @@ public class NuovoSensoreController {
 		}
 
 		menuModello.setDisable(true);
-		
-//		if (menuTipo.getSelectionModel().isEmpty()) {
-//
-//			tableModelliData = stampaListaM(servizioM.visualizzaTutti());
-//			Iterator<ModelloSensore> itM = tableModelliData.iterator();
-//
-//			while (itM.hasNext()) {
-//				String item = itM.next().getCodice();
-//				menuModello.getItems().add(item);
-//			}
-//		}
+
+		// if (menuTipo.getSelectionModel().isEmpty()) {
+		//
+		// tableModelliData = stampaListaM(servizioM.visualizzaTutti());
+		// Iterator<ModelloSensore> itM = tableModelliData.iterator();
+		//
+		// while (itM.hasNext()) {
+		// String item = itM.next().getCodice();
+		// menuModello.getItems().add(item);
+		// }
+		// }
 
 		menuTipo.setOnHidden((event) -> {
 
@@ -79,7 +82,7 @@ public class NuovoSensoreController {
 					menuModello.getItems().add(item);
 				}
 			}
-			
+
 			menuModello.setDisable(false);
 		});
 
@@ -104,7 +107,7 @@ public class NuovoSensoreController {
 			alert.setContentText("Inserimento nuovo sensore nell'impianto selezionato avvenuta con successo!");
 
 			alert.showAndWait();
-			
+
 			menuModello.getSelectionModel().clearSelection();
 			menuTipo.getSelectionModel().clearSelection();
 		});

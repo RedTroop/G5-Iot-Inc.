@@ -34,6 +34,11 @@ public class NuovoClienteController {
 
 	ServizioUtenti servizioU = new ServizioUtenti();
 
+	/**
+	 * Inizializza le azioni relative ai pulsanti e riempie la tableview
+	 * 
+	 * @throws SQLException
+	 */
 	@FXML
 	private void initialize() throws SQLException {
 
@@ -66,32 +71,32 @@ public class NuovoClienteController {
 
 			Alert alert;
 			String aTitle = "";
-			String aContent = "Avviso Inserimento";;
-			
+			String aContent = "Avviso Inserimento";
+
 			if (result) {
-				
+
 				aContent = "Inserimento nuovo utente avvenuto con successo!";
 				alert = new Alert(AlertType.INFORMATION);
-				
+
 				nomeField.clear();
 				cognomeField.clear();
 				emailField.clear();
 				passField.clear();
 				ripPassField.clear();
-				
+
 			} else {
-				
+
 				aContent = "Inserimento nuovo utente fallito! \nEmail già presente nel sistema.";
 				alert = new Alert(AlertType.ERROR);
-				
+
 				emailField.requestFocus();
 			}
-			
+
 			alert.setTitle(aTitle);
 			alert.setHeaderText(null);
 			alert.setContentText(aContent);
 			alert.showAndWait();
-			
+
 		});
 
 	}
