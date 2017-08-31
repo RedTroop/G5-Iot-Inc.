@@ -200,6 +200,10 @@ public class DaoImpianto implements DAO<Impianto> {
 
 		try {
 
+			Impianto impianto;
+			Utente utente;
+			coppia c;
+
 			while (res.next()) {
 
 				String ID = res.getString("ID");
@@ -209,10 +213,10 @@ public class DaoImpianto implements DAO<Impianto> {
 				String nomeC = res.getString("nome_cliente");
 				String cognomeC = res.getString("cognome_cliente");
 
-				Impianto impianto = new Impianto(ID, nome, cliente);
+				impianto = new Impianto(ID, nome, cliente);
 
-				Utente utente = new Utente(cliente, nomeC, cognomeC, "", "", "0");
-				coppia c = new coppia(impianto, utente);
+				utente = new Utente(cliente, nomeC, cognomeC, "", "", "0");
+				c = new coppia(impianto, utente);
 
 				lista.add(c);
 
