@@ -28,7 +28,7 @@ public class ListaImpiantiController {
 
 	private ObservableList<coppia> tableImpiantiData = FXCollections.observableArrayList();
 
-	public static coppia impiantoSelezionato;
+	protected static coppia impiantoSelezionato;
 
 	@FXML
 	private AnchorPane content;
@@ -195,7 +195,7 @@ public class ListaImpiantiController {
 	 * Tasforma la lista in una observable list da mostrare nella tabella
 	 * 
 	 * @param lista
-	 *           lista contenente il resultset
+	 *            lista contenente il resultset
 	 * @return observable list da mostrare
 	 */
 	private ObservableList<coppia> stampaLista(List<coppia> lista) {

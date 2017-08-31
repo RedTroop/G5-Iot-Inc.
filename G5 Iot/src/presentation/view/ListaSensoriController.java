@@ -104,7 +104,7 @@ public class ListaSensoriController {
 	 * Tasforma la lista in una observable list da mostrare nella tabella
 	 * 
 	 * @param lista
-	 *           lista contenente il resultset
+	 *            lista contenente il resultset
 	 * @return observable list da mostrare
 	 */
 	private ObservableList<Tipo> stampaListaT(List<Tipo> lista) {
@@ -115,6 +115,12 @@ public class ListaSensoriController {
 		return tableTipiData;
 	}
 
+	/**
+	 * Aggiorna la tabella con i sensori dell'impianto selezionato
+	 * 
+	 * @param i
+	 *            impianto selezionato
+	 */
 	private void riempiTable(Impianto i) {
 		tableSensori.getItems().clear();
 

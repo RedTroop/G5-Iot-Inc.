@@ -96,15 +96,9 @@ public class DaoSensore implements DAO<Sensore> {
 				String impianto = res.getString("Impianto");
 				String rilevazione = res.getString("rilevazione");
 				String tipo = res.getString("tipo");
-<<<<<<< HEAD
-				
-				
-				
-				Sensore sens = new Sensore(id, modello, impianto, rilevazione, tipo);
-=======
 
-				Sensore sens = new Sensore(ID, modello, impianto, rilevazione, tipo);
->>>>>>> 9b0da40979bc9d03c02b2ebd9d0c6d5a1a66c28e
+				Sensore sens = new Sensore(id, modello, impianto, rilevazione, tipo);
+
 
 				lista.add(sens);
 

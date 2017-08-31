@@ -173,6 +173,12 @@ public class ListaSensoriModificaController {
 	}
 
 	// METODI SERVIZIO
+	/**
+	 * Aggiorna la tabella con i sensori dell'impianto selezionato
+	 * 
+	 * @param i
+	 *            impianto selezionato
+	 */
 	private void riempiTable(Impianto i) {
 		tableSensori.getItems().clear();
 

@@ -101,12 +101,15 @@ public class NuovoClienteController {
 
 	}
 
+	/**
+	 * Controlla che tutti i campi del form siano riempiti correttamente
+	 * 
+	 * @return true se campi corretti, false se campi errati
+	 *
+	 */
 	private boolean checkNotEmpty() {
-		if (nomeField.getText().isEmpty() || cognomeField.getText().isEmpty() || emailField.getText().isEmpty()
-				|| passField.getText().isEmpty() || ripPassField.getText().isEmpty())
-			return false;
-		else
-			return true;
+		return !(nomeField.getText().isEmpty() && cognomeField.getText().isEmpty() && emailField.getText().isEmpty()
+				&& passField.getText().isEmpty() && ripPassField.getText().isEmpty());
 	}
 
 	private boolean checkEmail() {

@@ -114,6 +114,13 @@ public class NuovoSensoreController {
 
 	}
 
+	/**
+	 * Tasforma la lista in una observable list da mostrare nella tabella
+	 * 
+	 * @param lista
+	 *            lista contenente il resultset
+	 * @return observable list da mostrare
+	 */
 	private ObservableList<Tipo> stampaListaT(List<Tipo> lista) {
 		tableTipiData.clear();
 		for (Tipo i : lista) {

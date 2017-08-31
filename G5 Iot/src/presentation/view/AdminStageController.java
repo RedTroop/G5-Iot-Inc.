@@ -17,7 +17,7 @@ public class AdminStageController {
 	public static final String MODIFICA_IMPIANTO = "presentation/view/ListaSensoriModifica.fxml";
 	public static final String AGGIORNA_DB = "presentation/view/ListaModelli.fxml";
 
-	public static int funzione = 0; // 1 se mostra sensori, 2 se crea impianto, 3 se
+	protected static int funzione = 0; // 1 se mostra sensori, 2 se crea impianto, 3 se
 								// elimina impianto, 4 modifica impianto
 
 	@FXML

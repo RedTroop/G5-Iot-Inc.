@@ -19,11 +19,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
 public class ListaModelliController {
-	
+
 	private final ServizioModelli servizioM = new ServizioModelli();
 
 	private ObservableList<ModelloSensore> tableModelliData = FXCollections.observableArrayList();
-	
+
 	private ModelloSensore modelloSelezionato;
 
 	@FXML
@@ -47,10 +47,10 @@ public class ListaModelliController {
 		nuovoModelloButton.setOnAction((event) -> {
 			goScene("presentation/view/NuovoModello.fxml");
 		});
-		
+
 		eliminaModelloButton.setDisable(true);
 		eliminaModelloButton.setOnAction((event) -> {
-			
+
 			boolean result = servizioM.elimina(modelloSelezionato);
 
 			String aContent = "";
@@ -63,7 +63,7 @@ public class ListaModelliController {
 			} else {
 				aContent = "Eliminazione modello sensore selezionato fallita!";
 				alert = new Alert(AlertType.ERROR);
-				
+
 			}
 
 			alert.setTitle("Avviso Eliminazione");
@@ -71,9 +71,8 @@ public class ListaModelliController {
 			alert.setContentText(aContent);
 			alert.showAndWait();
 
-			
 		});
-		
+
 		tableModelli.setRowFactory(tv -> {
 			TableRow<ModelloSensore> row = new TableRow<>();
 			row.setOnMouseClicked(event -> {
@@ -86,8 +85,8 @@ public class ListaModelliController {
 			});
 
 			return row;
-		});	
-		
+		});
+
 		TableColumn<ModelloSensore, String> idCol = new TableColumn<ModelloSensore, String>("Identificativo");
 		idCol.setMinWidth(30);
 		idCol.setCellValueFactory(new PropertyValueFactory<>("Codice"));
@@ -117,7 +116,14 @@ public class ListaModelliController {
 			e.printStackTrace();
 		}
 	}
-	
+
+	/**
+	 * Tasforma la lista in una observable list da mostrare nella tabella
+	 * 
+	 * @param lista
+	 *            lista contenente il resultset
+	 * @return observable list da mostrare
+	 */
 	private ObservableList<ModelloSensore> stampaLista(List<ModelloSensore> lista) {
 		tableModelliData.clear();
 		for (ModelloSensore m : lista) {

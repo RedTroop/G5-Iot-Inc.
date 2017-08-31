@@ -103,20 +103,18 @@ public class DaoImpianto implements DAO<Impianto> {
 		return ret;
 	}
 
+	/**
+	 * Crea una lista a partire dal resultset
+	 * 
+	 * @param res
+	 *            risultato della query
+	 * @return lista generata
+	 */
 	private List<Impianto> creaLista(ResultSet res) {
 		List<Impianto> lista = new LinkedList<Impianto>();
 
 		try {
-<<<<<<< HEAD
-			while(res.next()){
-				
-				String id = res.getString("ID");
-				String nome = res.getString("Nome");
-				String cliente = res.getString("Cliente");
-				
-				Impianto impianto = new Impianto(id, nome, cliente);
-				
-=======
+
 			while (res.next()) {
 
 				String ID = res.getString("ID");
@@ -125,7 +123,6 @@ public class DaoImpianto implements DAO<Impianto> {
 
 				Impianto impianto = new Impianto(ID, nome, cliente);
 
->>>>>>> 9b0da40979bc9d03c02b2ebd9d0c6d5a1a66c28e
 				lista.add(impianto);
 
 			}
@@ -195,27 +192,18 @@ public class DaoImpianto implements DAO<Impianto> {
 		List<coppia> lista = new LinkedList<coppia>();
 
 		try {
-<<<<<<< HEAD
-			while(res.next()){
-				
-				String id = res.getString("ID");
-=======
+
 			while (res.next()) {
 
 				String ID = res.getString("ID");
->>>>>>> 9b0da40979bc9d03c02b2ebd9d0c6d5a1a66c28e
 				String nome = res.getString("Nome");
 				String cliente = res.getString("Cliente");
 
 				String nomeC = res.getString("nome_cliente");
 				String cognomeC = res.getString("cognome_cliente");
-<<<<<<< HEAD
-				
-				Impianto impianto = new Impianto(id, nome, cliente);
-=======
 
 				Impianto impianto = new Impianto(ID, nome, cliente);
->>>>>>> 9b0da40979bc9d03c02b2ebd9d0c6d5a1a66c28e
+
 				Utente utente = new Utente(cliente, nomeC, cognomeC, "", "", "0");
 				coppia c = new coppia(impianto, utente);
 

@@ -119,6 +119,13 @@ public class NuovoModelloController {
 		}
 	}
 
+	/**
+	 * Tasforma la lista in una observable list da mostrare nella tabella
+	 * 
+	 * @param lista
+	 *            lista contenente il resultset
+	 * @return observable list da mostrare
+	 */
 	private ObservableList<Tipo> stampaListaT(List<Tipo> lista) {
 		tableTipiData.clear();
 		for (Tipo i : lista) {
@@ -128,11 +135,8 @@ public class NuovoModelloController {
 	}
 
 	private boolean checkSelection() {
-		if (codiceField.getText().length() == 5 && !marcaField.getText().isEmpty()
-				&& tipoBox.getSelectionModel().getSelectedItem() != null)
-			return true;
-		else
-			return false;
+		return (codiceField.getText().length() == 5 && !marcaField.getText().isEmpty()
+				&& tipoBox.getSelectionModel().getSelectedItem() != null);
 	}
 
 }

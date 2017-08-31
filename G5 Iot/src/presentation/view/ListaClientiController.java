@@ -27,7 +27,7 @@ public class ListaClientiController {
 
 	private ObservableList<Utente> tableUtentiData = FXCollections.observableArrayList();
 
-	public static Utente utenteSelezionato;
+	protected static Utente utenteSelezionato;
 
 	@SuppressWarnings("unchecked")
 	@FXML
