@@ -12,10 +12,7 @@ public class Utente implements Entita {
 	}
 	
 	public Utente(String nome, String cognome, String email, String password) {
-		this.nome = nome;
-		this.cognome = cognome;
-		this.email = email;
-		this.password = password;
+		this("", nome, cognome, email, password, "");
 	}
 
 	private String id;

@@ -3,8 +3,7 @@ package business.entita;
 public class Impianto implements Entita {
 	
 	public Impianto(String nome, String cliente) {
-		this.nome = nome;
-		this.cliente = cliente;
+		this("", nome, cliente);
 	}
 
 	public Impianto(String id, String nome, String cliente) {

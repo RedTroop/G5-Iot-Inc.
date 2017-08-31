@@ -1,6 +1,7 @@
 package business.entita;
 
 public class Sensore implements Entita {
+
 	public Sensore(String id, String modello, String impianto, String rilevazione, String tipo) {
 		this.id = id;
 		this.modello = modello;
@@ -10,9 +11,7 @@ public class Sensore implements Entita {
 	}
 
 	public Sensore(String modello, String impianto, String tipo) {
-		this.modello = modello;
-		this.impianto = impianto;
-		this.tipo = tipo;
+		this("", modello, impianto, "", tipo);
 	}
 
 	private String id;

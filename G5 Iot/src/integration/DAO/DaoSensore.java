@@ -86,7 +86,7 @@ public class DaoSensore implements DAO<Sensore> {
 		try {
 			while (res.next()) {
 
-				String ID = res.getString("ID");
+				String id = res.getString("ID");
 				String modello = res.getString("modello");
 				String impianto = res.getString("Impianto");
 				String rilevazione = res.getString("rilevazione");
@@ -94,7 +94,7 @@ public class DaoSensore implements DAO<Sensore> {
 				
 				
 				
-				Sensore sens = new Sensore(ID, modello, impianto, rilevazione, tipo);
+				Sensore sens = new Sensore(id, modello, impianto, rilevazione, tipo);
 
 				lista.add(sens);
 

@@ -86,14 +86,14 @@ public class DaoUtente implements DAO<Utente> {
 		try {
 			while (res.next()) {
 
-				String ID = res.getString("ID");
+				String id = res.getString("ID");
 				String nome = res.getString("Nome");
 				String cognome = res.getString("Cognome");
 				String email = res.getString("Email");
 				String password = res.getString("Password");
 				String admin = res.getString("Admin");
 
-				Utente utente = new Utente(ID, nome, cognome, email, password, admin);
+				Utente utente = new Utente(id, nome, cognome, email, password, admin);
 
 				lista.add(utente);
 

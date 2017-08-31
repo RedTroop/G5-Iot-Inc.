@@ -103,6 +103,14 @@ public class ServizioSensori implements CRUD<Sensore> {
 		return format;
 	}
 
+	/**
+	 * Traduce la rilevazione secondo gli standard definiti dall'azienda
+	 * Mandriota Sensori
+	 * 
+	 * @param rilevazione
+	 *            stringa da tradurre
+	 * @return stringa tradotta
+	 */
 	private String formattaMA(String rilevazione) {
 		String format = "";
 

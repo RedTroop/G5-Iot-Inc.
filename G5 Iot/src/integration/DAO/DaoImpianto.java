@@ -106,11 +106,11 @@ public class DaoImpianto implements DAO<Impianto> {
 		try {
 			while(res.next()){
 				
-				String ID = res.getString("ID");
+				String id = res.getString("ID");
 				String nome = res.getString("Nome");
 				String cliente = res.getString("Cliente");
 				
-				Impianto impianto = new Impianto(ID, nome, cliente);
+				Impianto impianto = new Impianto(id, nome, cliente);
 				
 				lista.add(impianto);
 	
@@ -170,14 +170,14 @@ public class DaoImpianto implements DAO<Impianto> {
 		try {
 			while(res.next()){
 				
-				String ID = res.getString("ID");
+				String id = res.getString("ID");
 				String nome = res.getString("Nome");
 				String cliente = res.getString("Cliente");
 			
 				String nomeC = res.getString("nome_cliente");
 				String cognomeC = res.getString("cognome_cliente");
 				
-				Impianto impianto = new Impianto(ID, nome, cliente);
+				Impianto impianto = new Impianto(id, nome, cliente);
 				Utente utente = new Utente(cliente, nomeC, cognomeC, "", "", "0");
 				coppia c = new coppia(impianto, utente);
 				
