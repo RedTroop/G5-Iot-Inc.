@@ -3,6 +3,8 @@ package presentation.view;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import business.entita.Utente;
 import business.servizi.ServizioImpianti;
@@ -37,6 +39,8 @@ public class ListaImpiantiController {
 	private AnchorPane newLoadedPane;
 	@FXML
 	private Text textImpianti;
+
+	private static final Logger LOGGER = Logger.getLogger(ListaImpiantiController.class.getName());
 
 	@SuppressWarnings("unchecked")
 	@FXML
@@ -187,7 +191,8 @@ public class ListaImpiantiController {
 			content.getChildren().clear();
 			content.getChildren().add(newLoadedPane);
 		} catch (IOException e) {
-			e.printStackTrace();
+			LOGGER.log(Level.SEVERE, "Caricamento pagina fallito");
+
 		}
 	}
 

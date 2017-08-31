@@ -1,6 +1,8 @@
 package presentation.view;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +15,7 @@ public class ClienteStageController {
 	private AnchorPane content;
 	@FXML
 	private Button homeButton;
+	private static final Logger LOGGER = Logger.getLogger(ClienteStageController.class.getName());
 
 	@FXML
 	public void initialize() {
@@ -41,7 +44,8 @@ public class ClienteStageController {
 			content.getChildren().clear();
 			content.getChildren().add(newLoadedPane);
 		} catch (IOException e) {
-			e.printStackTrace();
+			LOGGER.log(Level.SEVERE, "Caricamento homepage cliente fallito");
+
 		}
 	}
 

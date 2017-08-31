@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import business.entita.Tipo;
 import integration.DBConnector;
@@ -15,6 +17,8 @@ public class DaoTipo implements DAO<Tipo> {
 	private static final String SELEZIONA_TUTTI_QUERY = "SELECT * FROM tipi";
 	private PreparedStatement query = null;
 	private ResultSet result;
+	
+	private static final Logger LOGGER = Logger.getLogger(DaoTipo.class.getName());
 
 	@Override
 	public boolean inserisci(Tipo e) {
@@ -38,7 +42,7 @@ public class DaoTipo implements DAO<Tipo> {
 			result = query.executeQuery();
 			ret = creaLista(result);
 		} catch (SQLException e) {
-			e.printStackTrace();
+			LOGGER.log(Level.WARNING, "Accesso al database non riuscito");
 		}
 
 		return ret;
@@ -71,7 +75,7 @@ public class DaoTipo implements DAO<Tipo> {
 
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			LOGGER.log(Level.WARNING, "Creazione lista non riuscita");
 		}
 
 		return lista;

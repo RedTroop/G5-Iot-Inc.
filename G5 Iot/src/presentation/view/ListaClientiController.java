@@ -2,6 +2,8 @@ package presentation.view;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import business.entita.Utente;
 import business.servizi.ServizioUtenti;
@@ -28,6 +30,7 @@ public class ListaClientiController {
 	private ObservableList<Utente> tableUtentiData = FXCollections.observableArrayList();
 
 	protected static Utente utenteSelezionato;
+	private static final Logger LOGGER = Logger.getLogger(ListaClientiController.class.getName());
 
 	@SuppressWarnings("unchecked")
 	@FXML
@@ -109,13 +112,14 @@ public class ListaClientiController {
 	}
 
 	public void goScene(String scene) {
-		System.out.println("Matteo Lac " + scene);
+
 		try {
 			newLoadedPane = FXMLLoader.load(getClass().getClassLoader().getResource(scene));
 			content.getChildren().clear();
 			content.getChildren().add(newLoadedPane);
 		} catch (IOException e) {
-			e.printStackTrace();
+			LOGGER.log(Level.SEVERE, "Caricamento pagina fallito");
+
 		}
 	}
 

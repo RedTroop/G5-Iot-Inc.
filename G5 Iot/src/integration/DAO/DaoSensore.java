@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import business.entita.Sensore;
 import integration.DBConnector;
@@ -17,6 +19,9 @@ public class DaoSensore implements DAO<Sensore> {
 	private static final String CERCA_QUERY = "SELECT sensori.*, modellisensori.Tipo FROM sensori, modellisensori WHERE sensori.modello = modellisensori.Codice AND impianto = ? AND tipo LIKE ?";
 	private PreparedStatement query = null;
 	private ResultSet result;
+	
+	private static final Logger LOGGER = Logger.getLogger(DaoSensore.class.getName());
+
 
 	@Override
 	public boolean inserisci(Sensore s) {
@@ -32,7 +37,7 @@ public class DaoSensore implements DAO<Sensore> {
 			query.execute();
 			ret = true;
 		} catch (SQLException e) {
-			e.printStackTrace();
+			LOGGER.log(Level.WARNING, "Inserimento del sensore nel database non riuscito");
 		}
 		return ret;
 	}
@@ -50,7 +55,7 @@ public class DaoSensore implements DAO<Sensore> {
 			query.execute();
 			ret = true;
 		} catch (SQLException e) {
-			e.printStackTrace();
+			LOGGER.log(Level.WARNING, "Eliminazione del modello nel database non riuscito");
 		}
 		return ret;
 	}
@@ -72,7 +77,7 @@ public class DaoSensore implements DAO<Sensore> {
 			result = query.executeQuery();
 			ret = creaLista(result);
 		} catch (SQLException e) {
-			e.printStackTrace();
+			LOGGER.log(Level.WARNING, "Accesso al database non riuscito");
 		}
 
 		return ret;
@@ -104,7 +109,7 @@ public class DaoSensore implements DAO<Sensore> {
 
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			LOGGER.log(Level.WARNING, "Creazione lista non riuscita");
 		}
 
 		return lista;

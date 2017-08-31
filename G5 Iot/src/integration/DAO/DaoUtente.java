@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import business.entita.Utente;
 import integration.DBConnector;
@@ -18,6 +20,8 @@ public class DaoUtente implements DAO<Utente> {
 
 	private PreparedStatement query = null;
 	private ResultSet result;
+	
+	private static final Logger LOGGER = Logger.getLogger(DaoSensore.class.getName());
 
 	@Override
 	public boolean inserisci(Utente u) {
@@ -35,7 +39,7 @@ public class DaoUtente implements DAO<Utente> {
 			ret = true;
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			LOGGER.log(Level.WARNING, "Inserimento del sensore nel database non riuscito");
 		}
 
 		return ret;
@@ -58,7 +62,7 @@ public class DaoUtente implements DAO<Utente> {
 			ret = creaLista(result);
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			LOGGER.log(Level.WARNING, "Accesso al database non riuscito");
 		}
 
 		return ret;
@@ -74,7 +78,7 @@ public class DaoUtente implements DAO<Utente> {
 			result = query.executeQuery();
 			ret = creaLista(result);
 		} catch (SQLException e) {
-			e.printStackTrace();
+			LOGGER.log(Level.WARNING, "Accesso al database non riuscito");
 		}
 
 		return ret;
@@ -106,7 +110,7 @@ public class DaoUtente implements DAO<Utente> {
 
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			LOGGER.log(Level.WARNING, "Creazione lista non riuscita");
 		}
 
 		return lista;

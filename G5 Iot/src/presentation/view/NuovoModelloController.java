@@ -3,6 +3,8 @@ package presentation.view;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import business.entita.ModelloSensore;
 import business.entita.Tipo;
@@ -37,6 +39,9 @@ public class NuovoModelloController {
 	private ServizioModelli servizioM = new ServizioModelli();
 
 	private ObservableList<Tipo> tableTipiData = FXCollections.observableArrayList();
+	
+	private static final Logger LOGGER = Logger.getLogger(NuovoModelloController.class.getName());
+
 
 	/**
 	 * Inizializza le azioni relative ai pulsanti e riempie la tableview
@@ -115,7 +120,7 @@ public class NuovoModelloController {
 			content.getChildren().clear();
 			content.getChildren().add(newLoadedPane);
 		} catch (IOException e) {
-			e.printStackTrace();
+			LOGGER.log(Level.SEVERE, "Caricamento pagina fallito");
 		}
 	}
 

@@ -2,6 +2,8 @@ package presentation.view;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import business.entita.ModelloSensore;
 import business.servizi.ServizioModelli;
@@ -36,6 +38,9 @@ public class ListaModelliController {
 	private AnchorPane newLoadedPane;
 	@FXML
 	private AnchorPane content;
+	
+	private static final Logger LOGGER = Logger.getLogger(ListaModelliController.class.getName());
+
 
 	/**
 	 * Inizializza le azioni relative ai pulsanti e riempie la tableview
@@ -113,7 +118,7 @@ public class ListaModelliController {
 			content.getChildren().clear();
 			content.getChildren().add(newLoadedPane);
 		} catch (IOException e) {
-			e.printStackTrace();
+			LOGGER.log(Level.SEVERE, "Caricamento pagina fallito");
 		}
 	}
 

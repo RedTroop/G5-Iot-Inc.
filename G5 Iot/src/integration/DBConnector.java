@@ -10,6 +10,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.InvalidPropertiesFormatException;
 import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Classe (Pattern: singleton) per la connessione ad un DB
@@ -28,6 +30,9 @@ public class DBConnector {
 	 * Istanza della classe ConnettoreMySQL
 	 */
 	private static final DBConnector ISTANZA = new DBConnector();
+	
+	private static final Logger LOGGER = Logger.getLogger(DBConnector.class.getName());
+
 
 	/**
 	 * Costruttore privato per la classe, contentente le credenziali di accesso
@@ -62,14 +67,13 @@ public class DBConnector {
 			System.out.println("Database Connected! :D");
 
 		} catch (SQLException e) {
-			e.printStackTrace();
-			System.err.println("Database NOT Connected! :(");
+			LOGGER.log(Level.SEVERE, "Connessione al database non riuscita");
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			LOGGER.log(Level.SEVERE, "File delle credenziali di accesso al database non trovato");
 		} catch (InvalidPropertiesFormatException e) {
-			e.printStackTrace();
+			LOGGER.log(Level.SEVERE, "Proprietà XML non valide");
 		} catch (IOException e) {
-			e.printStackTrace();
+			LOGGER.log(Level.SEVERE, "Errore nella lettura del file");
 		}
 	}
 

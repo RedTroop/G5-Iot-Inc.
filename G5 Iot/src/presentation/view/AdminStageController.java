@@ -1,6 +1,8 @@
 package presentation.view;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,8 +19,9 @@ public class AdminStageController {
 	public static final String MODIFICA_IMPIANTO = "presentation/view/ListaSensoriModifica.fxml";
 	public static final String AGGIORNA_DB = "presentation/view/ListaModelli.fxml";
 
-	protected static int funzione = 0; // 1 se mostra sensori, 2 se crea impianto, 3 se
-								// elimina impianto, 4 modifica impianto
+	protected static int funzione = 0; // 1 se mostra sensori, 2 se crea
+										// impianto, 3 se
+	// elimina impianto, 4 modifica impianto
 
 	@FXML
 	private AnchorPane content;
@@ -36,6 +39,7 @@ public class AdminStageController {
 	private Button aggiornaDBButt;
 
 	AnchorPane newLoadedPane;
+	private static final Logger LOGGER = Logger.getLogger(AdminStageController.class.getName());
 
 	@FXML
 	public void initialize() {
@@ -71,13 +75,14 @@ public class AdminStageController {
 	}
 
 	public void goScene(String scene) {
-		System.out.println("Matteo Lac " + scene);
+		
 		try {
 			newLoadedPane = FXMLLoader.load(getClass().getClassLoader().getResource(scene));
 			content.getChildren().clear();
 			content.getChildren().add(newLoadedPane);
 		} catch (IOException e) {
-			e.printStackTrace();
+			LOGGER.log(Level.SEVERE, "Caricamento pagina admin fallito");
+
 		}
 	}
 

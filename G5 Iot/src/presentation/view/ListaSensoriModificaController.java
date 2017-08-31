@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import business.entita.Impianto;
 import business.entita.Sensore;
@@ -50,6 +52,9 @@ public class ListaSensoriModificaController {
 	private Label nomeImpianto;
 	@FXML
 	private Button eliminaButton;
+	
+	private static final Logger LOGGER = Logger.getLogger(ListaSensoriModificaController.class.getName());
+
 
 	/**
 	 * Inizializza le azioni relative ai pulsanti e riempie la tableview
@@ -210,7 +215,7 @@ public class ListaSensoriModificaController {
 			content.getChildren().clear();
 			content.getChildren().add(newLoadedPane);
 		} catch (IOException e) {
-			e.printStackTrace();
+			LOGGER.log(Level.SEVERE, "Caricamento pagina fallito");
 		}
 	}
 

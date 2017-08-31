@@ -1,6 +1,8 @@
 package presentation.view;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import business.servizi.ServizioLogin;
 import javafx.event.ActionEvent;
@@ -18,6 +20,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+
 public class LoginController {
 
 	@FXML
@@ -28,6 +31,7 @@ public class LoginController {
 	private TextField email;
 	@FXML
 	private PasswordField password;
+	private static final Logger LOGGER = Logger.getLogger(LoginController.class.getName());
 
 	@FXML
 	public void initialize() {
@@ -66,7 +70,7 @@ public class LoginController {
 					// Hide this current window (if this is what you want)
 					((Node) (event.getSource())).getScene().getWindow().hide();
 				} catch (IOException e) {
-					e.printStackTrace();
+					LOGGER.log(Level.SEVERE, "Caricamento homepage admin fallito");
 				}
 			} else {
 				try {
@@ -81,7 +85,7 @@ public class LoginController {
 					// Hide this current window (if this is what you want)
 					((Node) (event.getSource())).getScene().getWindow().hide();
 				} catch (IOException e) {
-					e.printStackTrace();
+					LOGGER.log(Level.SEVERE, "Caricamento homepage cliente fallito");
 				}
 			}
 

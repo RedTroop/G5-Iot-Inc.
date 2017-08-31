@@ -1,6 +1,8 @@
 package presentation;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +15,9 @@ public class MainApp extends Application {
 
 	private Stage primaryStage;
 	private BorderPane rootLayout;
+	
+	private static final Logger LOGGER = Logger.getLogger(MainApp.class.getName());
+
 
 	@Override
 	public void start(Stage primaryStage) {
@@ -40,7 +45,7 @@ public class MainApp extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch (IOException e) {
-			e.printStackTrace();
+			LOGGER.log(Level.SEVERE, "Caricamento stage fallito");
 		}
 	}
 
@@ -57,7 +62,7 @@ public class MainApp extends Application {
 			// Set login into the center of root layout.
 			rootLayout.setCenter(login);
 		} catch (IOException e) {
-			e.printStackTrace();
+			LOGGER.log(Level.SEVERE, "Caricamento frame login fallito");
 		}
 	}
 
