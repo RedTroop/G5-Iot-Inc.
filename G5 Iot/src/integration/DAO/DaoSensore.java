@@ -10,7 +10,6 @@ import java.util.List;
 import business.entita.Sensore;
 import integration.DBConnector;
 
-
 public class DaoSensore implements DAO<Sensore> {
 
 	private static final String INSERISCI_QUERY = "INSERT INTO sensori (modello, Impianto) VALUES (?,?)";
@@ -78,8 +77,14 @@ public class DaoSensore implements DAO<Sensore> {
 
 		return ret;
 	}
-	
 
+	/**
+	 * Crea una lista a partire dal resultset
+	 * 
+	 * @param res
+	 *            risultato della query
+	 * @return lista generata
+	 */
 	private List<Sensore> creaLista(ResultSet res) {
 		List<Sensore> lista = new LinkedList<Sensore>();
 
@@ -91,10 +96,15 @@ public class DaoSensore implements DAO<Sensore> {
 				String impianto = res.getString("Impianto");
 				String rilevazione = res.getString("rilevazione");
 				String tipo = res.getString("tipo");
+<<<<<<< HEAD
 				
 				
 				
 				Sensore sens = new Sensore(id, modello, impianto, rilevazione, tipo);
+=======
+
+				Sensore sens = new Sensore(ID, modello, impianto, rilevazione, tipo);
+>>>>>>> 9b0da40979bc9d03c02b2ebd9d0c6d5a1a66c28e
 
 				lista.add(sens);
 

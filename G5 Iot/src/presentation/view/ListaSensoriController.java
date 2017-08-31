@@ -38,7 +38,7 @@ public class ListaSensoriController {
 
 	@SuppressWarnings("unchecked")
 	public void initialize() {
-		
+
 		TableColumn<Sensore, String> idCol = new TableColumn<Sensore, String>("ID");
 		idCol.setMinWidth(15);
 		idCol.setCellValueFactory(new PropertyValueFactory<>("ID"));
@@ -58,7 +58,7 @@ public class ListaSensoriController {
 		tableSensori.getColumns().addAll(idCol, modelloCol, impiantoCol, rilevazioneCol);
 
 		riempiTable(ListaImpiantiController.impiantoSelezionato.getI());
-		
+
 		nomeImpianto.setText(ListaImpiantiController.impiantoSelezionato.getI().getNome());
 
 		tableTipiData = stampaListaT(servizioT.visualizzaTutti());
@@ -85,6 +85,13 @@ public class ListaSensoriController {
 		menuFiltro.getItems().add(tutti);
 	}
 
+	/**
+	 * Tasforma la lista in una observable list da mostrare nella tabella
+	 * 
+	 * @param lista
+	 *            contenente il resultset
+	 * @return observable list da mostrare
+	 */
 	private ObservableList<Sensore> stampaListaS(List<Sensore> lista) {
 		tableSensoriData.clear();
 		for (Sensore i : lista) {
@@ -93,6 +100,13 @@ public class ListaSensoriController {
 		return tableSensoriData;
 	}
 
+	/**
+	 * Tasforma la lista in una observable list da mostrare nella tabella
+	 * 
+	 * @param lista
+	 *           lista contenente il resultset
+	 * @return observable list da mostrare
+	 */
 	private ObservableList<Tipo> stampaListaT(List<Tipo> lista) {
 		tableTipiData.clear();
 		for (Tipo i : lista) {
@@ -107,7 +121,6 @@ public class ListaSensoriController {
 		tableSensoriData = stampaListaS(servizioS.cerca("", i.getID()));
 		tableSensori.setItems(tableSensoriData);
 
-		
 	}
 
 }

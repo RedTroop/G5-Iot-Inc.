@@ -29,15 +29,15 @@ public class DaoUtente implements DAO<Utente> {
 			query.setString(2, u.getCognome());
 			query.setString(3, u.getEmail());
 			query.setString(4, u.getPassword());
-			
+
 			query.execute();
-	
+
 			ret = true;
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 		return ret;
 	}
 
@@ -80,6 +80,13 @@ public class DaoUtente implements DAO<Utente> {
 		return ret;
 	}
 
+	/**
+	 * Crea una lista a partire dal resultset
+	 * 
+	 * @param res
+	 *            risultato della query
+	 * @return lista generata
+	 */
 	private List<Utente> creaLista(ResultSet res) {
 		List<Utente> lista = new LinkedList<Utente>();
 

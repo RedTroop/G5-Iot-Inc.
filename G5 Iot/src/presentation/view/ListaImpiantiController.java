@@ -73,7 +73,7 @@ public class ListaImpiantiController {
 			} else {
 				tableImpiantiData = stampaLista(servizio.cercaC(utente.getID()));
 			}
-			
+
 			tableImpianti.setItems(tableImpiantiData);
 
 			tableImpianti.setRowFactory(tv -> {
@@ -191,6 +191,13 @@ public class ListaImpiantiController {
 		}
 	}
 
+	/**
+	 * Tasforma la lista in una observable list da mostrare nella tabella
+	 * 
+	 * @param lista
+	 *           lista contenente il resultset
+	 * @return observable list da mostrare
+	 */
 	private ObservableList<coppia> stampaLista(List<coppia> lista) {
 		tableImpiantiData.clear();
 		for (coppia i : lista) {

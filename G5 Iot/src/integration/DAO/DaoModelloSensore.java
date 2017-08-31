@@ -68,7 +68,7 @@ public class DaoModelloSensore implements DAO<ModelloSensore> {
 		try {
 			Connection conn = DBConnector.getConnector().getConnessione();
 			query = conn.prepareStatement(VISUALIZZA_TUTTI_QUERY);
-			
+
 			ret = creaLista(query.executeQuery());
 
 		} catch (SQLException e) {
@@ -95,6 +95,13 @@ public class DaoModelloSensore implements DAO<ModelloSensore> {
 		return ret;
 	}
 
+	/**
+	 * Crea una lista a partire dal resultset
+	 * 
+	 * @param res
+	 *            risultato della query
+	 * @return lista generata
+	 */
 	private List<ModelloSensore> creaLista(ResultSet res) {
 		List<ModelloSensore> lista = new LinkedList<ModelloSensore>();
 

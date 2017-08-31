@@ -50,6 +50,13 @@ public class DaoTipo implements DAO<Tipo> {
 		return null;
 	}
 
+	/**
+	 * Crea una lista a partire dal resultset
+	 * 
+	 * @param res
+	 *            risultato della query
+	 * @return lista generata
+	 */
 	private List<Tipo> creaLista(ResultSet res) {
 		List<Tipo> lista = new LinkedList<Tipo>();
 
