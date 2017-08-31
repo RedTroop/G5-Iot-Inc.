@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import business.entita.Impianto;
 import business.entita.Utente;
@@ -24,6 +26,8 @@ public class DaoImpianto implements DAO<Impianto> {
 
 	private PreparedStatement query = null;
 
+	private static final Logger LOGGER = Logger.getLogger(DaoImpianto.class.getName());
+
 	@Override
 	public boolean inserisci(Impianto i) {
 		Boolean ret = false;
@@ -39,7 +43,7 @@ public class DaoImpianto implements DAO<Impianto> {
 			ret = true;
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			LOGGER.log(Level.WARNING, "Inserimento dell'impianto nel database non riuscito");
 		}
 
 		return ret;
@@ -60,7 +64,7 @@ public class DaoImpianto implements DAO<Impianto> {
 			ret = true;
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			LOGGER.log(Level.WARNING, "Eliminazione dell'impianto nel database non riuscita");
 		}
 
 		return ret;
@@ -78,7 +82,7 @@ public class DaoImpianto implements DAO<Impianto> {
 			ret = creaLista(result);
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			LOGGER.log(Level.WARNING, "Accesso al database non riuscito");
 		}
 
 		return ret;
@@ -97,7 +101,7 @@ public class DaoImpianto implements DAO<Impianto> {
 			ret = creaLista(result);
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			LOGGER.log(Level.WARNING, "Accesso al database non riuscito");
 		}
 
 		return ret;
@@ -117,17 +121,17 @@ public class DaoImpianto implements DAO<Impianto> {
 
 			while (res.next()) {
 
-				String ID = res.getString("ID");
+				String id = res.getString("ID");
 				String nome = res.getString("Nome");
 				String cliente = res.getString("Cliente");
 
-				Impianto impianto = new Impianto(ID, nome, cliente);
+				Impianto impianto = new Impianto(id, nome, cliente);
 
 				lista.add(impianto);
 
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			LOGGER.log(Level.WARNING, "Creazione lista fallita");
 		}
 
 		return lista;
@@ -211,7 +215,7 @@ public class DaoImpianto implements DAO<Impianto> {
 
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			LOGGER.log(Level.WARNING, "Creazione lista non riuscita");
 		}
 
 		return lista;
@@ -229,7 +233,7 @@ public class DaoImpianto implements DAO<Impianto> {
 			ret = creaListaC(result);
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			LOGGER.log(Level.WARNING, "Accesso al database non riuscito");
 		}
 
 		return ret;
@@ -246,7 +250,7 @@ public class DaoImpianto implements DAO<Impianto> {
 			ret = creaListaC(result);
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			LOGGER.log(Level.WARNING, "Accesso al database non riuscito");
 		}
 
 		return ret;
