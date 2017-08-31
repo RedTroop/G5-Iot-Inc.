@@ -24,7 +24,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
-
 /**
  * Classe controller per il frame di selezione impianto
  * 
@@ -37,7 +36,7 @@ public class ListaImpiantiController {
 
 	private ObservableList<coppia> tableImpiantiData = FXCollections.observableArrayList();
 
-	protected static coppia impiantoSelezionato;
+	protected static coppia impiantoSelezionato = null;
 
 	@FXML
 	private AnchorPane content;

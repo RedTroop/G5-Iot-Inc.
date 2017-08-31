@@ -30,9 +30,8 @@ public class DBConnector {
 	 * Istanza della classe ConnettoreMySQL
 	 */
 	private static final DBConnector ISTANZA = new DBConnector();
-	
-	private static final Logger LOGGER = Logger.getLogger(DBConnector.class.getName());
 
+	private static final Logger LOGGER = Logger.getLogger(DBConnector.class.getName());
 
 	/**
 	 * Costruttore privato per la classe, contentente le credenziali di accesso
@@ -48,10 +47,10 @@ public class DBConnector {
 		try {
 
 			// ottengo informazioni su db, user e pwd dal file dbconfig.ini
-			File f = new File("C:" + File.separatorChar + "Users" + File.separatorChar + "redtr_000" + File.separatorChar
-					+ "workspace" + File.separatorChar + "G5 Iot" + File.separatorChar + ".settings" + File.separatorChar
-					+ "dbconfig.ini");
-			
+			File f = new File("C:" + File.separatorChar + "Users" + File.separatorChar + "redtr_000"
+					+ File.separatorChar + "workspace" + File.separatorChar + "G5 Iot" + File.separatorChar
+					+ ".settings" + File.separatorChar + "dbconfig.ini");
+
 			in = new FileInputStream(f);
 			Properties props = new Properties();
 			props.loadFromXML(in);
@@ -74,6 +73,12 @@ public class DBConnector {
 			LOGGER.log(Level.SEVERE, "Proprietà XML non valide");
 		} catch (IOException e) {
 			LOGGER.log(Level.SEVERE, "Errore nella lettura del file");
+		} finally {
+			try {
+				in.close();
+			} catch (IOException e) {
+				LOGGER.log(Level.SEVERE, "I/O Exception");
+			}
 		}
 	}
 
