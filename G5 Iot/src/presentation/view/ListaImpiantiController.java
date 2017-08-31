@@ -24,6 +24,13 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
+
+/**
+ * Classe controller per il frame di selezione impianto
+ * 
+ * @author redtr_000
+ *
+ */
 public class ListaImpiantiController {
 
 	private final ServizioImpianti servizio = new ServizioImpianti();

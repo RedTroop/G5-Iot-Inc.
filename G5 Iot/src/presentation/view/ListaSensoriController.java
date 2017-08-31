@@ -19,6 +19,12 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
+/**
+ * Classe controller per il frame di visualizzazione sensori
+ * 
+ * @author redtr_000
+ *
+ */
 public class ListaSensoriController {
 
 	private final ServizioSensori servizioS = new ServizioSensori();

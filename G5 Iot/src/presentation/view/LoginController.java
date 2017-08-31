@@ -20,7 +20,11 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-
+/**
+ * 
+ * @author redtr_000
+ *
+ */
 public class LoginController {
 
 	@FXML

@@ -4,7 +4,13 @@ import java.util.List;
 
 import business.entita.Entita;
 
-public interface CRUD<T> extends Entita {
+/**
+ * Interfaccia per la tavola CRUD (Create, Read, Update, Delete) + Cerca
+ * 
+ * @author redtr_000
+ *
+ */
+public interface CRUD<T extends Entita> {
 
 	/**
 	 * Inserisce entità nel database

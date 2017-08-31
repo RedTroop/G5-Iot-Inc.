@@ -9,6 +9,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 
+/**
+ * Classe controller per lo Stage Admin principale
+ * 
+ * @author redtr_000
+ *
+ */
 public class AdminStageController {
 
 	public static final String NUOVO_CLIENTE = "presentation/view/NuovoCliente.fxml";
@@ -75,7 +81,7 @@ public class AdminStageController {
 	}
 
 	public void goScene(String scene) {
-		
+
 		try {
 			newLoadedPane = FXMLLoader.load(getClass().getClassLoader().getResource(scene));
 			content.getChildren().clear();

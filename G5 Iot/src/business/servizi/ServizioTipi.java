@@ -5,9 +5,14 @@ import java.util.List;
 import business.entita.Tipo;
 import integration.DAO.DaoTipo;
 
+/**
+ * La classe offre servizi per la gestione di un Tipo
+ * 
+ * @author redtr_000
+ *
+ */
 public class ServizioTipi implements CRUD<Tipo> {
 	private DaoTipo daoTipo = new DaoTipo();
-
 
 	@Override
 	public boolean inserisci(Object oggetto) {

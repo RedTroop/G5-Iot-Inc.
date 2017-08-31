@@ -11,13 +11,18 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+/**
+ * Classe di avvio contenente il "main"
+ * 
+ * @author redtr_000
+ *
+ */
 public class MainApp extends Application {
 
 	private Stage primaryStage;
 	private BorderPane rootLayout;
-	
-	private static final Logger LOGGER = Logger.getLogger(MainApp.class.getName());
 
+	private static final Logger LOGGER = Logger.getLogger(MainApp.class.getName());
 
 	@Override
 	public void start(Stage primaryStage) {

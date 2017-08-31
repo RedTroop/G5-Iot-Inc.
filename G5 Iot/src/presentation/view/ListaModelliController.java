@@ -20,6 +20,12 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
+/**
+ * Classe controller per il frame di selezione modello
+ * 
+ * @author redtr_000
+ *
+ */
 public class ListaModelliController {
 
 	private final ServizioModelli servizioM = new ServizioModelli();

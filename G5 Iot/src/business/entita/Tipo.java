@@ -1,6 +1,12 @@
 package business.entita;
 
-public class Tipo {
+/**
+ * Classe entità per Tipo
+ * 
+ * @author redtr_000
+ *
+ */
+public class Tipo implements Entita {
 	public Tipo(String tipo) {
 		this.tipo = tipo;
 	}

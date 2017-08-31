@@ -14,6 +14,9 @@ import business.entita.Utente;
 import integration.DBConnector;
 
 /**
+ * Classe per la gestione/esecuzione delle query per i dati relativi agli
+ * Impianti
+ * 
  * @author Matteo
  *
  */

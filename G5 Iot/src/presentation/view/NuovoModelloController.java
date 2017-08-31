@@ -21,6 +21,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 
+/**
+ * Classe controller per il frame di inserimento nuovo modello
+ * 
+ * @author redtr_000
+ *
+ */
 public class NuovoModelloController {
 
 	@FXML
@@ -39,9 +45,8 @@ public class NuovoModelloController {
 	private ServizioModelli servizioM = new ServizioModelli();
 
 	private ObservableList<Tipo> tableTipiData = FXCollections.observableArrayList();
-	
-	private static final Logger LOGGER = Logger.getLogger(NuovoModelloController.class.getName());
 
+	private static final Logger LOGGER = Logger.getLogger(NuovoModelloController.class.getName());
 
 	/**
 	 * Inizializza le azioni relative ai pulsanti e riempie la tableview

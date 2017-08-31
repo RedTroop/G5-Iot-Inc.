@@ -6,6 +6,12 @@ import business.entita.Impianto;
 import integration.DAO.DaoImpianto;
 import integration.DAO.DaoImpianto.coppia;
 
+/**
+ * La classe offre servizi per la gestione di un Impianto
+ * 
+ * @author redtr_000
+ *
+ */
 public class ServizioImpianti implements CRUD<Impianto> {
 	private DaoImpianto daoImpianto = new DaoImpianto();
 

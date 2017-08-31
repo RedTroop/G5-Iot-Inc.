@@ -5,6 +5,12 @@ import java.util.List;
 import business.entita.Sensore;
 import integration.DAO.DaoSensore;
 
+/**
+ * La classe offre servizi per la gestione di un Servizio
+ * 
+ * @author redtr_000
+ *
+ */
 public class ServizioSensori implements CRUD<Sensore> {
 
 	final static String ERRORE = "ERR";

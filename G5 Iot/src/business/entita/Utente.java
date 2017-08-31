@@ -1,5 +1,11 @@
 package business.entita;
 
+/**
+ * Classe entità per Utente
+ * 
+ * @author redtr_000
+ *
+ */
 public class Utente implements Entita {
 
 	public Utente(String id, String nome, String cognome, String email, String password, String admin) {
@@ -10,7 +16,7 @@ public class Utente implements Entita {
 		this.password = password;
 		this.admin = admin;
 	}
-	
+
 	public Utente(String nome, String cognome, String email, String password) {
 		this("", nome, cognome, email, password, "");
 	}

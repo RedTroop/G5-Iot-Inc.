@@ -9,6 +9,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 
+/**
+ * Classe controller per il frame di inserimento nuovo impianto
+ * 
+ * @author redtr_000
+ *
+ */
 public class NuovoImpiantoController {
 
 	@FXML
@@ -45,7 +51,7 @@ public class NuovoImpiantoController {
 
 			String aContent = "";
 			Alert alert;
-			
+
 			if (result) {
 				aContent = "Inserimento nuovo impianto per il cliente selezionato avvenuto con successo!";
 				alert = new Alert(AlertType.INFORMATION);
@@ -55,7 +61,7 @@ public class NuovoImpiantoController {
 				alert = new Alert(AlertType.ERROR);
 				nomeField.requestFocus();
 			}
-			
+
 			alert.setTitle("Avviso Inserimento");
 			alert.setHeaderText(null);
 			alert.setContentText(aContent);

@@ -12,6 +12,13 @@ import java.util.logging.Logger;
 import business.entita.ModelloSensore;
 import integration.DBConnector;
 
+/**
+ * Classe per la gestione/esecuzione delle query per i dati relativi ai Modelli
+ * Sensori
+ * 
+ * @author redtr_000
+ *
+ */
 public class DaoModelloSensore implements DAO<ModelloSensore> {
 
 	private static final String VISUALIZZA_TUTTI_QUERY = "SELECT * FROM modellisensori WHERE disponibilità = 1";

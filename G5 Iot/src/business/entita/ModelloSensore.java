@@ -1,5 +1,11 @@
 package business.entita;
 
+/**
+ * Classe entità per Modello Sensore
+ * 
+ * @author redtr_000
+ *
+ */
 public class ModelloSensore implements Entita {
 	public ModelloSensore(String codice, String tipo, String marca) {
 		super();

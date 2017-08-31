@@ -12,6 +12,12 @@ import java.util.logging.Logger;
 import business.entita.Utente;
 import integration.DBConnector;
 
+/**
+ * Classe per la gestione/esecuzione delle query per i dati relativi agli Utenti
+ * 
+ * @author redtr_000
+ *
+ */
 public class DaoUtente implements DAO<Utente> {
 
 	private static final String VISUALIZZA_TUTTI_QUERY = "SELECT * FROM utenti WHERE admin = 0";
@@ -20,7 +26,7 @@ public class DaoUtente implements DAO<Utente> {
 
 	private PreparedStatement query = null;
 	private ResultSet result;
-	
+
 	private static final Logger LOGGER = Logger.getLogger(DaoSensore.class.getName());
 
 	@Override

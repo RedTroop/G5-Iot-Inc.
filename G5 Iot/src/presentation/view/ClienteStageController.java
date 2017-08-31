@@ -9,6 +9,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 
+/**
+ * Classe controller per lo Stage Cliente principale
+ * 
+ * @author redtr_000
+ *
+ */
 public class ClienteStageController {
 
 	@FXML

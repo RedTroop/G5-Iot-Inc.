@@ -14,6 +14,12 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
+/**
+ * Classe controller per il frame di inserimento nuovo cliente
+ * 
+ * @author redtr_000
+ *
+ */
 public class NuovoClienteController {
 
 	@FXML

@@ -2,6 +2,13 @@ package integration.DAO;
 
 import java.util.List;
 
+/**
+ * Interfaccia per pattern DAO (Data Access Object)
+ * 
+ * @author redtr_000
+ *
+ * @param <Entita>
+ */
 public interface DAO<Entita> {
 
 	/**

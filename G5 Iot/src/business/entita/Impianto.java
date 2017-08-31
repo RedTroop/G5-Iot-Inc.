@@ -1,5 +1,9 @@
 package business.entita;
 
+/**Classe entità per Impianto
+ * @author redtr_000
+ *
+ */
 public class Impianto implements Entita {
 	
 	public Impianto(String nome, String cliente) {

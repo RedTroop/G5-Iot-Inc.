@@ -12,12 +12,18 @@ import java.util.logging.Logger;
 import business.entita.Tipo;
 import integration.DBConnector;
 
+/**
+ * Classe per la gestione/esecuzione delle query per i dati relativi ai Tipi
+ * 
+ * @author redtr_000
+ *
+ */
 public class DaoTipo implements DAO<Tipo> {
 
 	private static final String SELEZIONA_TUTTI_QUERY = "SELECT * FROM tipi";
 	private PreparedStatement query = null;
 	private ResultSet result;
-	
+
 	private static final Logger LOGGER = Logger.getLogger(DaoTipo.class.getName());
 
 	@Override

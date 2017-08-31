@@ -5,6 +5,12 @@ import java.util.List;
 import business.entita.ModelloSensore;
 import integration.DAO.DaoModelloSensore;
 
+/**
+ * La classe offre servizi per la gestione di un Modello Sensore
+ * 
+ * @author redtr_000
+ *
+ */
 public class ServizioModelli implements CRUD<ModelloSensore> {
 
 	private DaoModelloSensore daoModello = new DaoModelloSensore();

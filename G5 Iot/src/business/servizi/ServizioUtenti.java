@@ -5,6 +5,12 @@ import java.util.List;
 import business.entita.Utente;
 import integration.DAO.DaoUtente;
 
+/**
+ * La classe offre servizi per la gestione di un Utente
+ * 
+ * @author redtr_000
+ *
+ */
 public class ServizioUtenti implements CRUD<Utente> {
 	private DaoUtente daoUtente = new DaoUtente();
 

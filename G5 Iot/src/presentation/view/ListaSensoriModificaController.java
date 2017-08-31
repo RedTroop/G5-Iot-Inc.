@@ -29,6 +29,12 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
+/**
+ * Classe controller per il frame di selezione sensori
+ * 
+ * @author redtr_000
+ *
+ */
 public class ListaSensoriModificaController {
 
 	private final ServizioSensori servizioS = new ServizioSensori();

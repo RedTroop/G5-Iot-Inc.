@@ -17,6 +17,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Alert.AlertType;
 
+/**
+ * Classe controller per il frame di inserimento nuovo sensore
+ * 
+ * @author redtr_000
+ *
+ */
 public class NuovoSensoreController {
 
 	private final ServizioTipi servizioT = new ServizioTipi();

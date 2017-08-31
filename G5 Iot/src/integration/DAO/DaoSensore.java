@@ -12,6 +12,12 @@ import java.util.logging.Logger;
 import business.entita.Sensore;
 import integration.DBConnector;
 
+/**
+ * Classe per la gestione/esecuzione delle query per i dati relativi ai Sensori
+ * 
+ * @author redtr_000
+ *
+ */
 public class DaoSensore implements DAO<Sensore> {
 
 	private static final String INSERISCI_QUERY = "INSERT INTO sensori (modello, Impianto) VALUES (?,?)";
@@ -19,9 +25,8 @@ public class DaoSensore implements DAO<Sensore> {
 	private static final String CERCA_QUERY = "SELECT sensori.*, modellisensori.Tipo FROM sensori, modellisensori WHERE sensori.modello = modellisensori.Codice AND impianto = ? AND tipo LIKE ?";
 	private PreparedStatement query = null;
 	private ResultSet result;
-	
-	private static final Logger LOGGER = Logger.getLogger(DaoSensore.class.getName());
 
+	private static final Logger LOGGER = Logger.getLogger(DaoSensore.class.getName());
 
 	@Override
 	public boolean inserisci(Sensore s) {
@@ -103,7 +108,6 @@ public class DaoSensore implements DAO<Sensore> {
 				String tipo = res.getString("tipo");
 
 				Sensore sens = new Sensore(id, modello, impianto, rilevazione, tipo);
-
 
 				lista.add(sens);
 
