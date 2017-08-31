@@ -104,9 +104,9 @@ public class LoginController {
 	 *            password dell'utente
 	 * @return
 	 */
-	private boolean verificaLogin(String email, String pass) {
+	private boolean verificaLogin(String e, String p) {
 
-		boolean resLogin = ServizioLogin.effettuaLogin(email, pass);
+		boolean resLogin = ServizioLogin.effettuaLogin(e, p);
 
 		Alert alert;
 		String aTitle = "Avviso Login";

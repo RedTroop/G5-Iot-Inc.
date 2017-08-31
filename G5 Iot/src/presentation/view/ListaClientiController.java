@@ -42,49 +42,32 @@ public class ListaClientiController {
 	@FXML
 	public void initialize() {
 
+		// CREA IMPIANTO
 		if (AdminStageController.funzione == 2)
 			tableClienti.setRowFactory(tv -> {
 				TableRow<Utente> row = new TableRow<>();
-				row.setOnMouseClicked(event -> {
-					if (!row.isEmpty()) {
-						Utente rowData = row.getItem();
-						utenteSelezionato = rowData;
-						System.out.println(rowData.getNome());
 
-						goScene(AdminStageController.NUOVO_IMPIANTO);
-					}
-				});
+				creaImpiantoFrame(row);
 
 				return row;
 			});
 
+		// ELIMINA IMPIANTO
 		else if (AdminStageController.funzione == 3)
 			tableClienti.setRowFactory(tv -> {
 				TableRow<Utente> row = new TableRow<>();
-				row.setOnMouseClicked(event -> {
-					if (!row.isEmpty()) {
-						Utente rowData = row.getItem();
-						utenteSelezionato = rowData;
-						System.out.println(rowData.getNome());
-						goScene(AdminStageController.LISTA_IMPIANTI);
-					}
-				});
+
+				eliminaImpiantoFrame(row);
 
 				return row;
 			});
 
+		// MODIFICA IMPIANTO
 		else if (AdminStageController.funzione == 4) {
 			tableClienti.setRowFactory(tv -> {
 				TableRow<Utente> row = new TableRow<>();
-				row.setOnMouseClicked(event -> {
-					if (!row.isEmpty()) {
-						Utente rowData = row.getItem();
-						utenteSelezionato = rowData;
-						System.out.println(rowData.getNome());
-						goScene(AdminStageController.LISTA_IMPIANTI);
 
-					}
-				});
+				modificaImpiantoFrame(row);
 
 				return row;
 			});
@@ -115,6 +98,61 @@ public class ListaClientiController {
 		tableClienti.setItems(tableUtentiData);
 		tableClienti.getColumns().addAll(idCol, nomeCol, cognomeCol, emailCol);
 
+	}
+
+	/**
+	 * Carica il frame per la creazione di un nuovo impianto per l'utente
+	 * selezionato
+	 * 
+	 * @param u
+	 *            utente selezionato
+	 */
+	private void creaImpiantoFrame(TableRow<Utente> u) {
+		u.setOnMouseClicked(event -> {
+			if (!u.isEmpty()) {
+				Utente rowData = u.getItem();
+				utenteSelezionato = rowData;
+				System.out.println(rowData.getNome());
+
+				goScene(AdminStageController.NUOVO_IMPIANTO);
+			}
+		});
+	}
+
+	/**
+	 * Carica il frame per l'eliminazione di un impianto per l'utente
+	 * selezionato
+	 * 
+	 * @param u
+	 *            utente selezionato
+	 */
+	private void eliminaImpiantoFrame(TableRow<Utente> u) {
+		u.setOnMouseClicked(event -> {
+			if (!u.isEmpty()) {
+				Utente rowData = u.getItem();
+				utenteSelezionato = rowData;
+				System.out.println(rowData.getNome());
+				goScene(AdminStageController.LISTA_IMPIANTI);
+			}
+		});
+	}
+
+	/**
+	 * Carica il frame per la modifica di un impianto per l'utente selezionato
+	 * 
+	 * @param u
+	 *            utente selezionato
+	 */
+	private void modificaImpiantoFrame(TableRow<Utente> u) {
+		u.setOnMouseClicked(event -> {
+			if (!u.isEmpty()) {
+				Utente rowData = u.getItem();
+				utenteSelezionato = rowData;
+				System.out.println(rowData.getNome());
+				goScene(AdminStageController.LISTA_IMPIANTI);
+
+			}
+		});
 	}
 
 	public void goScene(String scene) {

@@ -25,9 +25,9 @@ public class MainApp extends Application {
 	private static final Logger LOGGER = Logger.getLogger(MainApp.class.getName());
 
 	@Override
-	public void start(Stage primaryStage) {
-		this.primaryStage = primaryStage;
-		this.primaryStage.setTitle("G5 Iot Inc.");
+	public void start(Stage stage) {
+		primaryStage = stage;
+		primaryStage.setTitle("G5 Iot Inc.");
 		primaryStage.setResizable(false);
 
 		initRootLayout();
