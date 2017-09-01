@@ -45,6 +45,7 @@ public class DaoModelloSensore implements DAO<ModelloSensore> {
 			query.execute();
 			ret = true;
 
+			conn.close();
 		} catch (SQLException e) {
 			LOGGER.log(Level.WARNING, "Inserimento del modello nel database non riuscito");
 		}
@@ -65,6 +66,7 @@ public class DaoModelloSensore implements DAO<ModelloSensore> {
 			query.execute();
 			ret = true;
 
+			conn.close();
 		} catch (SQLException e) {
 			LOGGER.log(Level.WARNING, "Eliminazione del modello dal database non riuscita");
 		}
@@ -82,6 +84,7 @@ public class DaoModelloSensore implements DAO<ModelloSensore> {
 
 			ret = creaLista(query.executeQuery());
 
+			conn.close();
 		} catch (SQLException e) {
 			LOGGER.log(Level.WARNING, "Accesso al database non riuscito");
 		}
@@ -99,6 +102,7 @@ public class DaoModelloSensore implements DAO<ModelloSensore> {
 			query.setString(1, valore);
 			ret = creaLista(query.executeQuery());
 
+			conn.close();
 		} catch (SQLException e) {
 			LOGGER.log(Level.WARNING, "Accesso al database non riuscito");
 		}

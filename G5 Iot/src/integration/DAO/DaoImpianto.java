@@ -45,6 +45,7 @@ public class DaoImpianto implements DAO<Impianto> {
 			query.execute();
 			ret = true;
 
+			conn.close();
 		} catch (SQLException e) {
 			LOGGER.log(Level.WARNING, "Inserimento dell'impianto nel database non riuscito");
 		}
@@ -66,6 +67,7 @@ public class DaoImpianto implements DAO<Impianto> {
 			query.execute();
 			ret = true;
 
+			conn.close();
 		} catch (SQLException e) {
 			LOGGER.log(Level.WARNING, "Eliminazione dell'impianto nel database non riuscita");
 		}
@@ -76,7 +78,7 @@ public class DaoImpianto implements DAO<Impianto> {
 	@Override
 	public List<Impianto> visualizzaTutti() {
 		List<Impianto> ret = null;
-		ResultSet result;
+		ResultSet result = null;
 
 		try {
 			Connection conn = DBConnector.getConnector().getConnessione();
@@ -84,17 +86,18 @@ public class DaoImpianto implements DAO<Impianto> {
 			result = query.executeQuery();
 			ret = creaLista(result);
 
+			conn.close();
+			result.close();
 		} catch (SQLException e) {
 			LOGGER.log(Level.WARNING, "Accesso al database non riuscito");
 		}
-
 		return ret;
 	}
 
 	@Override
 	public List<Impianto> cerca(String campo, String valore) {
 		List<Impianto> ret = null;
-		ResultSet result;
+		ResultSet result = null;
 
 		try {
 			Connection conn = DBConnector.getConnector().getConnessione();
@@ -103,6 +106,8 @@ public class DaoImpianto implements DAO<Impianto> {
 			result = query.executeQuery();
 			ret = creaLista(result);
 
+			conn.close();
+			result.close();
 		} catch (SQLException e) {
 			LOGGER.log(Level.WARNING, "Accesso al database non riuscito");
 		}
@@ -236,7 +241,7 @@ public class DaoImpianto implements DAO<Impianto> {
 
 	public List<coppia> cercaC(String valore) {
 		List<coppia> ret = null;
-		ResultSet result;
+		ResultSet result = null;
 
 		try {
 			Connection conn = DBConnector.getConnector().getConnessione();
@@ -245,6 +250,8 @@ public class DaoImpianto implements DAO<Impianto> {
 			result = query.executeQuery();
 			ret = creaListaC(result);
 
+			conn.close();
+			result.close();
 		} catch (SQLException e) {
 			LOGGER.log(Level.WARNING, "Accesso al database non riuscito");
 		}
@@ -254,7 +261,7 @@ public class DaoImpianto implements DAO<Impianto> {
 
 	public List<coppia> visualizzaTuttiC() {
 		List<coppia> ret = null;
-		ResultSet result;
+		ResultSet result = null;
 
 		try {
 			Connection conn = DBConnector.getConnector().getConnessione();
@@ -262,6 +269,8 @@ public class DaoImpianto implements DAO<Impianto> {
 			result = query.executeQuery();
 			ret = creaListaC(result);
 
+			conn.close();
+			result.close();
 		} catch (SQLException e) {
 			LOGGER.log(Level.WARNING, "Accesso al database non riuscito");
 		}

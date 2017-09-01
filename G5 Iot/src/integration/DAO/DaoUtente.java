@@ -44,6 +44,7 @@ public class DaoUtente implements DAO<Utente> {
 
 			ret = true;
 
+			conn.close();
 		} catch (SQLException e) {
 			LOGGER.log(Level.WARNING, "Inserimento del sensore nel database non riuscito");
 		}
@@ -67,6 +68,7 @@ public class DaoUtente implements DAO<Utente> {
 			result = query.executeQuery();
 			ret = creaLista(result);
 
+			conn.close();
 		} catch (SQLException e) {
 			LOGGER.log(Level.WARNING, "Accesso al database non riuscito");
 		}
@@ -83,6 +85,8 @@ public class DaoUtente implements DAO<Utente> {
 			query.setString(1, valore);
 			result = query.executeQuery();
 			ret = creaLista(result);
+
+			conn.close();
 		} catch (SQLException e) {
 			LOGGER.log(Level.WARNING, "Accesso al database non riuscito");
 		}
@@ -113,7 +117,6 @@ public class DaoUtente implements DAO<Utente> {
 				Utente utente = new Utente(id, nome, cognome, email, password, admin);
 
 				lista.add(utente);
-
 			}
 		} catch (SQLException e) {
 			LOGGER.log(Level.WARNING, "Creazione lista non riuscita");
