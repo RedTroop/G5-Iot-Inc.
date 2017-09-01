@@ -15,19 +15,57 @@ import javafx.scene.layout.AnchorPane;
  * @author redtr_000
  *
  */
+/**
+ * @author redtr_000
+ *
+ */
 public class AdminStageController {
 
+	/**
+	 * Costante contenente URL del frame Nuovo Cliente
+	 */
 	public static final String NUOVO_CLIENTE = "presentation/view/NuovoCliente.fxml";
+
+	/**
+	 * Costante contenente URL del frame Lista Sensori
+	 */
 	public static final String LISTA_SENSORI = "presentation/view/ListaSensori.fxml";
+
+	/**
+	 * Costante contenente URL del frame Lista Impianti
+	 */
 	public static final String LISTA_IMPIANTI = "presentation/view/ListaImpianti.fxml";
+
+	/**
+	 * Costante contenente URL del frame Nuovo Impianto
+	 */
 	public static final String NUOVO_IMPIANTO = "presentation/view/NuovoImpianto.fxml";
+
+	/**
+	 * Costante contenente URL del frame Lista Cliente
+	 */
 	public static final String LISTA_CLIENTI = "presentation/view/ListaClienti.fxml";
+
+	/**
+	 * Costante contenente URL del frame Modifica Impianto
+	 */
 	public static final String MODIFICA_IMPIANTO = "presentation/view/ListaSensoriModifica.fxml";
+
+	/**
+	 * Costante contenente URL del frame Aggiorna Database
+	 */
 	public static final String AGGIORNA_DB = "presentation/view/ListaModelli.fxml";
 
-	protected static int funzione = 0; // 1 se mostra sensori, 2 se crea
-										// impianto, 3 se
-	// elimina impianto, 4 modifica impianto
+	/**
+	 * Variabile utilizzata per memorizzare la funzione selezionata dall'utente
+	 * <p>
+	 * 
+	 * 1: Mostra Sensori <br>
+	 * 2: Crea Impianto <br>
+	 * 3: Elimina Impianto <br>
+	 * 4: Modifica Impianto
+	 */
+	protected static int funzione = 0;
 
 	@FXML
 	private AnchorPane content;

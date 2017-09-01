@@ -140,10 +140,16 @@ public class DaoImpianto implements DAO<Impianto> {
 		return lista;
 	}
 
+	/**
+	 * Classe di supporto per collegare un Impianto ad un Utente
+	 * 
+	 * @author redtr_000
+	 *
+	 */
 	public class coppia {
-		coppia(Impianto i, Utente u) {
-			this.i = i;
-			this.u = u;
+		private coppia(Impianto imp, Utente ute) {
+			i = imp;
+			u = ute;
 			idI = i.getID();
 			nomeI = i.getNome();
 			idU = u.getID();

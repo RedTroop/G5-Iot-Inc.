@@ -35,7 +35,8 @@ public class ListaClientiController {
 
 	private ObservableList<Utente> tableUtentiData = FXCollections.observableArrayList();
 
-	protected static Utente utenteSelezionato = null;
+	protected static Utente utenteSelezionato = new Utente("", "", "", "");
+	
 	private static final Logger LOGGER = Logger.getLogger(ListaClientiController.class.getName());
 
 	@SuppressWarnings("unchecked")

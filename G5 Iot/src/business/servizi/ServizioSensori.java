@@ -13,22 +13,35 @@ import integration.DAO.DaoSensore;
  */
 public class ServizioSensori implements CRUD<Sensore> {
 
-	final static String ERRORE = "ERR";
-	final static String ANOMALIA = "ANM";
-	final static String SUCCESSO = "SUC";
+	private final static String ERRORE = "ERR";
+	private final static String ANOMALIA = "ANM";
+	private final static String SUCCESSO = "SUC";
 
-	final static String ERR_TRASMISSIONE = "403";
-	final static String ERR_MALFUNZIONAMENTO = "402";
+	private final static String ERR_TRASMISSIONE = "403";
+	private final static String ERR_MALFUNZIONAMENTO = "402";
 
-	final static String MARCA_MANDRIOTA = "MA";
-	final static String MARCA_SET = "SE";
-	final static String MARCA_UVA = "US";
+	private final static String MARCA_MANDRIOTA = "MA";
+	private final static String MARCA_SET = "SE";
+	private final static String MARCA_UVA = "US";
 
-	final static String TEMPERATURA = "T";
-	final static String UMIDITA = "U";
-	final static String PRESSIONE = "P";
+	private final static String TEMPERATURA = "T";
+	private final static String UMIDITA = "U";
+	private final static String PRESSIONE = "P";
 
-	final static String GRADI = "°";
+	private final static String GRADI = "°";
+	private final static String PERCENTUALE = "%";
+	private final static String ETTOPASCAL = " hPa";
+
+	private final static int CHAR_DESCRIZIONE = 3; // ultimi 3 caratteri della
+													// rilevazione
+	private final static int CHAR_CODICE = 5; // primi 5 caratteri della
+												// rilevazione
+	private final static int CHAR_MARCA = 3; // caratteri dal 3 al 5 della
+												// rilevazione
+	private final static int CHAR_INIZIO = 0; // primo carattere della
+												// rilevazione
+	private final static int CHAR_TIPO = 1; // primi 2 caratteri della
+											// rilevazione
 
 	private DaoSensore daoSensore = new DaoSensore();
 
@@ -79,19 +92,18 @@ public class ServizioSensori implements CRUD<Sensore> {
 	 * @return stringa tradotta
 	 */
 	private String formattaString(String rilevazione) {
-		// char[] ril = rilevazione.toCharArray();
 
-		String format = null;
-		if (rilevazione.length() > 3) {
-			String descr = rilevazione.substring(rilevazione.length() - 3);
+		String format = "";
+		if (rilevazione.length() > CHAR_DESCRIZIONE) {
+			String descr = rilevazione.substring(rilevazione.length() - CHAR_DESCRIZIONE);
 			if (descr.equalsIgnoreCase(ERRORE)) {
-				rilevazione = rilevazione.substring(5, rilevazione.length() - 3);
+				rilevazione = rilevazione.substring(CHAR_CODICE, rilevazione.length() - CHAR_DESCRIZIONE);
 				if (rilevazione.equalsIgnoreCase(ERR_TRASMISSIONE))
 					format = " ---  Errore di trasmissione!  --- ";
 				else if (rilevazione.equalsIgnoreCase(ERR_MALFUNZIONAMENTO))
 					format = " ---  Malfunzionamento sensore!  --- ";
-			} else {
-				String marca = rilevazione.substring(3, 5);
+			} else if (descr.equalsIgnoreCase(SUCCESSO)) {
+				String marca = rilevazione.substring(CHAR_MARCA, CHAR_CODICE);
 				if (marca.equalsIgnoreCase(MARCA_MANDRIOTA)) {
 					format = formattaMA(rilevazione);
 				} else if (marca.equalsIgnoreCase(MARCA_SET)) {
@@ -118,10 +130,11 @@ public class ServizioSensori implements CRUD<Sensore> {
 	 * @return stringa tradotta
 	 */
 	private String formattaMA(String rilevazione) {
+
 		String format = "";
 
-		String tipo = rilevazione.substring(0, 1);
-		String decimale = rilevazione.substring(5, rilevazione.length() - 3);
+		String tipo = rilevazione.substring(CHAR_INIZIO, CHAR_TIPO);
+		String decimale = rilevazione.substring(CHAR_CODICE, rilevazione.length() - CHAR_DESCRIZIONE);
 
 		System.out.println("rilevazi: " + rilevazione);
 		System.out.println("decimale: " + decimale);
@@ -133,26 +146,34 @@ public class ServizioSensori implements CRUD<Sensore> {
 		String giorno = "";
 		String segno = "";
 		String valore = "";
-
 		String misura = "";
 
+		final int INIZIO = 0;
+		final int FINE_ORE = 2;
+		final int FINE_MINUTI = 4;
+		final int FINE_ANNO = 8;
+		final int FINE_MESE = 10;
+		final int FINE_GIORNO = 12;
+		final int SEGNO = 1;
+		final int FINE_VALORE = 12;
+
 		if (tipo.equalsIgnoreCase(TEMPERATURA)) {
-			ore = decimale.substring(0, 2);
-			min = decimale.substring(2, 4);
-			anno = decimale.substring(4, 8);
-			mese = decimale.substring(8, 10);
-			giorno = decimale.substring(10, 12);
-			segno = decimale.substring(12, 13);
-			valore = decimale.substring(13);
-			misura = "°";
+			ore = decimale.substring(INIZIO, FINE_ORE);
+			min = decimale.substring(FINE_ORE, FINE_MINUTI);
+			anno = decimale.substring(FINE_MINUTI, FINE_ANNO);
+			mese = decimale.substring(FINE_ANNO, FINE_MESE);
+			giorno = decimale.substring(FINE_MESE, FINE_GIORNO);
+			segno = decimale.substring(FINE_GIORNO, FINE_GIORNO + SEGNO);
+			valore = decimale.substring(FINE_VALORE + SEGNO);
+			misura = GRADI;
 		} else if (tipo.equalsIgnoreCase(UMIDITA)) {
-			ore = decimale.substring(0, 2);
-			min = decimale.substring(2, 4);
-			anno = decimale.substring(4, 8);
-			mese = decimale.substring(8, 10);
-			giorno = decimale.substring(10, 12);
-			valore = decimale.substring(12);
-			misura = "%";
+			ore = decimale.substring(INIZIO, FINE_ORE);
+			min = decimale.substring(FINE_ORE, FINE_MINUTI);
+			anno = decimale.substring(FINE_MINUTI, FINE_ANNO);
+			mese = decimale.substring(FINE_ANNO, FINE_MESE);
+			giorno = decimale.substring(FINE_MESE, FINE_GIORNO);
+			valore = decimale.substring(FINE_VALORE);
+			misura = PERCENTUALE;
 		}
 
 		format = ordina(ore, min, giorno, mese, anno, segno, valore, misura);
@@ -163,8 +184,8 @@ public class ServizioSensori implements CRUD<Sensore> {
 	private String formattaSE(String rilevazione) {
 		String format = "";
 
-		String tipo = rilevazione.substring(0, 1);
-		String decimale = rilevazione.substring(5, rilevazione.length() - 3);
+		String tipo = rilevazione.substring(CHAR_INIZIO, CHAR_TIPO);
+		String decimale = rilevazione.substring(CHAR_CODICE, rilevazione.length() - CHAR_DESCRIZIONE);
 
 		String ore = "";
 		String min = "";
@@ -173,26 +194,41 @@ public class ServizioSensori implements CRUD<Sensore> {
 		String giorno = "";
 		String segno = "";
 		String valore = "";
-
 		String misura = "";
 
+		final int P_INIZIO = 0;
+		final int P_FINE_ORE = 15;
+		final int P_FINE_MINUTI = 15;
+		final int P_FINE_ANNO = 13;
+		final int P_FINE_MESE = 7;
+		final int P_FINE_GIORNO = 9;
+		final int P_FINE_VALORE = 5;
+
+		final int U_INIZIO = 0;
+		final int U_FINE_ORE = 13;
+		final int U_FINE_MINUTI = 13;
+		final int U_FINE_ANNO = 11;
+		final int U_FINE_MESE = 5;
+		final int U_FINE_GIORNO = 7;
+		final int U_FINE_VALORE = 3;
+
 		if (tipo.equalsIgnoreCase(PRESSIONE)) {
-			ore = decimale.substring(13, 15);
-			min = decimale.substring(15);
-			anno = decimale.substring(9, 13);
-			mese = decimale.substring(5, 7);
-			giorno = decimale.substring(7, 9);
-			valore = decimale.substring(0, 5);
-			misura = " hPa";
+			ore = decimale.substring(P_FINE_ANNO, P_FINE_ORE);
+			min = decimale.substring(P_FINE_MINUTI);
+			anno = decimale.substring(P_FINE_GIORNO, P_FINE_ANNO);
+			mese = decimale.substring(P_FINE_VALORE, P_FINE_MESE);
+			giorno = decimale.substring(P_FINE_MESE, P_FINE_GIORNO);
+			valore = decimale.substring(P_INIZIO, P_FINE_VALORE);
+			misura = ETTOPASCAL;
 
 		} else if (tipo.equalsIgnoreCase(UMIDITA)) {
-			ore = decimale.substring(11, 13);
-			min = decimale.substring(13);
-			anno = decimale.substring(7, 11);
-			mese = decimale.substring(3, 5);
-			giorno = decimale.substring(5, 7);
-			valore = decimale.substring(0, 3);
-			misura = "%";
+			ore = decimale.substring(U_FINE_ANNO, U_FINE_ORE);
+			min = decimale.substring(U_FINE_MINUTI);
+			anno = decimale.substring(U_FINE_GIORNO, U_FINE_ANNO);
+			mese = decimale.substring(U_FINE_VALORE, U_FINE_MESE);
+			giorno = decimale.substring(U_FINE_MESE, U_FINE_GIORNO);
+			valore = decimale.substring(U_INIZIO, U_FINE_VALORE);
+			misura = PERCENTUALE;
 		}
 
 		format = ordina(ore, min, giorno, mese, anno, segno, valore, misura);
@@ -203,8 +239,8 @@ public class ServizioSensori implements CRUD<Sensore> {
 	private String formattaUS(String rilevazione) {
 		String format = "";
 
-		String tipo = rilevazione.substring(0, 1);
-		String decimale = rilevazione.substring(5, rilevazione.length() - 3);
+		String tipo = rilevazione.substring(CHAR_INIZIO, CHAR_TIPO);
+		String decimale = rilevazione.substring(CHAR_CODICE, rilevazione.length() - CHAR_DESCRIZIONE);
 
 		String ore = "";
 		String min = "";
@@ -213,27 +249,43 @@ public class ServizioSensori implements CRUD<Sensore> {
 		String giorno = "";
 		String segno = "";
 		String valore = "";
-
 		String misura = "";
 
+		final int P_INIZIO = 0;
+		final int P_FINE_ORE = 15;
+		final int P_FINE_MINUTI = 15;
+		final int P_FINE_ANNO = 8;
+		final int P_FINE_MESE = 4;
+		final int P_FINE_GIORNO = 2;
+		final int P_FINE_VALORE = 13;
+
+		final int T_INIZIO = 0;
+		final int T_FINE_ORE = 14;
+		final int T_FINE_MINUTI = 14;
+		final int T_FINE_ANNO = 8;
+		final int T_FINE_MESE = 4;
+		final int T_FINE_GIORNO = 2;
+		final int T_FINE_VALORE = 12;
+		final int T_SEGNO = 1;
+
 		if (tipo.equalsIgnoreCase(PRESSIONE)) {
-			ore = decimale.substring(13, 15);
-			min = decimale.substring(15);
-			anno = decimale.substring(4, 8);
-			mese = decimale.substring(2, 4);
-			giorno = decimale.substring(0, 2);
-			valore = decimale.substring(8, 13);
-			misura = " hPa";
+			ore = decimale.substring(P_FINE_VALORE, P_FINE_ORE);
+			min = decimale.substring(P_FINE_MINUTI);
+			anno = decimale.substring(P_FINE_MESE, P_FINE_ANNO);
+			mese = decimale.substring(P_FINE_GIORNO, P_FINE_MESE);
+			giorno = decimale.substring(P_INIZIO, P_FINE_GIORNO);
+			valore = decimale.substring(P_FINE_ANNO, P_FINE_VALORE);
+			misura = ETTOPASCAL;
 
 		} else if (tipo.equalsIgnoreCase(TEMPERATURA)) {
-			ore = decimale.substring(12, 14);
-			min = decimale.substring(14);
-			anno = decimale.substring(4, 8);
-			mese = decimale.substring(2, 4);
-			giorno = decimale.substring(0, 2);
-			segno = decimale.substring(8, 9);
-			valore = decimale.substring(9, 12);
-			misura = "°";
+			ore = decimale.substring(T_FINE_VALORE, T_FINE_ORE);
+			min = decimale.substring(T_FINE_MINUTI);
+			anno = decimale.substring(T_FINE_MESE, T_FINE_ANNO);
+			mese = decimale.substring(T_FINE_GIORNO, T_FINE_MESE);
+			giorno = decimale.substring(T_INIZIO, T_FINE_GIORNO);
+			segno = decimale.substring(T_FINE_ANNO, T_FINE_ANNO + T_SEGNO);
+			valore = decimale.substring(T_FINE_ANNO + T_SEGNO, T_FINE_VALORE);
+			misura = GRADI;
 		}
 
 		format = ordina(ore, min, giorno, mese, anno, segno, valore, misura);
