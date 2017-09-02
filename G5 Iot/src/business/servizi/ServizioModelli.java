@@ -13,7 +13,7 @@ import integration.DAO.DaoModelloSensore;
  */
 public class ServizioModelli implements CRUD<ModelloSensore> {
 
-	private DaoModelloSensore daoModello = new DaoModelloSensore();
+	private final DaoModelloSensore daoModello = new DaoModelloSensore();
 
 	@Override
 	public boolean inserisci(Object oggetto) {

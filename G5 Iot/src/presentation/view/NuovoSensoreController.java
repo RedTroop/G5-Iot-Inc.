@@ -144,11 +144,8 @@ public class NuovoSensoreController {
 	}
 
 	private boolean checkSelection() {
-		if (menuModello.getSelectionModel().getSelectedItem() != null
-				&& menuTipo.getSelectionModel().getSelectedItem() != null)
-			return true;
-		else
-			return false;
+		return (menuModello.getSelectionModel().getSelectedItem() != null
+				&& menuTipo.getSelectionModel().getSelectedItem() != null);
 	}
 
 }

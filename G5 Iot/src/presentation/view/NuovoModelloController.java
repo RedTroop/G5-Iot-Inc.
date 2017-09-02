@@ -41,8 +41,8 @@ public class NuovoModelloController {
 	private AnchorPane content;
 	private AnchorPane newLoadedPane;
 
-	private ServizioTipi servizioT = new ServizioTipi();
-	private ServizioModelli servizioM = new ServizioModelli();
+	private final ServizioTipi servizioT = new ServizioTipi();
+	private final ServizioModelli servizioM = new ServizioModelli();
 
 	private ObservableList<Tipo> tableTipiData = FXCollections.observableArrayList();
 

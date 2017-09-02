@@ -31,6 +31,9 @@ public class DaoImpianto implements DAO<Impianto> {
 
 	private static final Logger LOGGER = Logger.getLogger(DaoImpianto.class.getName());
 
+	/**
+	 * @see integration.DAO.DAO#inserisci(java.lang.Object)
+	 */
 	@Override
 	public boolean inserisci(Impianto i) {
 		Boolean ret = false;
@@ -151,8 +154,8 @@ public class DaoImpianto implements DAO<Impianto> {
 	 * @author redtr_000
 	 *
 	 */
-	public class coppia {
-		private coppia(Impianto imp, Utente ute) {
+	public class Coppia {
+		private Coppia(Impianto imp, Utente ute) {
 			i = imp;
 			u = ute;
 			idI = i.getID();
@@ -206,14 +209,14 @@ public class DaoImpianto implements DAO<Impianto> {
 	 *            risultato della query
 	 * @return lista generata
 	 */
-	private List<coppia> creaListaC(ResultSet res) {
-		List<coppia> lista = new LinkedList<coppia>();
+	private List<Coppia> creaListaC(ResultSet res) {
+		List<Coppia> lista = new LinkedList<Coppia>();
 
 		try {
 
 			Impianto impianto;
 			Utente utente;
-			coppia c;
+			Coppia c;
 
 			while (res.next()) {
 
@@ -227,7 +230,7 @@ public class DaoImpianto implements DAO<Impianto> {
 				impianto = new Impianto(ID, nome, cliente);
 
 				utente = new Utente(cliente, nomeC, cognomeC, "", "", "0");
-				c = new coppia(impianto, utente);
+				c = new Coppia(impianto, utente);
 
 				lista.add(c);
 
@@ -239,8 +242,8 @@ public class DaoImpianto implements DAO<Impianto> {
 		return lista;
 	}
 
-	public List<coppia> cercaC(String valore) {
-		List<coppia> ret = null;
+	public List<Coppia> cercaC(String valore) {
+		List<Coppia> ret = null;
 		ResultSet result = null;
 
 		try {
@@ -259,8 +262,8 @@ public class DaoImpianto implements DAO<Impianto> {
 		return ret;
 	}
 
-	public List<coppia> visualizzaTuttiC() {
-		List<coppia> ret = null;
+	public List<Coppia> visualizzaTuttiC() {
+		List<Coppia> ret = null;
 		ResultSet result = null;
 
 		try {

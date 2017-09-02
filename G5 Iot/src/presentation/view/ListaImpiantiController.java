@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 import business.entita.Utente;
 import business.servizi.ServizioImpianti;
 import business.servizi.ServizioLogin;
-import integration.DAO.DaoImpianto.coppia;
+import integration.DAO.DaoImpianto.Coppia;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -34,14 +34,14 @@ public class ListaImpiantiController {
 
 	private final ServizioImpianti servizio = new ServizioImpianti();
 
-	private ObservableList<coppia> tableImpiantiData = FXCollections.observableArrayList();
+	private ObservableList<Coppia> tableImpiantiData = FXCollections.observableArrayList();
 
-	protected static coppia impiantoSelezionato = null;
+	protected static Coppia impiantoSelezionato = null;
 
 	@FXML
 	private AnchorPane content;
 	@FXML
-	private TableView<coppia> tableImpianti;
+	private TableView<Coppia> tableImpianti;
 	private AnchorPane newLoadedPane;
 	@FXML
 	private Text textImpianti;
@@ -52,23 +52,23 @@ public class ListaImpiantiController {
 	@FXML
 	public void initialize() {
 
-		TableColumn<coppia, String> idCol = new TableColumn<coppia, String>("ID");
+		TableColumn<Coppia, String> idCol = new TableColumn<Coppia, String>("ID");
 		idCol.setMinWidth(30);
 		idCol.setCellValueFactory(new PropertyValueFactory<>("idI"));
 
-		TableColumn<coppia, String> nomeCol = new TableColumn<coppia, String>("Nome Impianto");
+		TableColumn<Coppia, String> nomeCol = new TableColumn<Coppia, String>("Nome Impianto");
 		nomeCol.setMinWidth(100);
 		nomeCol.setCellValueFactory(new PropertyValueFactory<>("nomeI"));
 
-		TableColumn<coppia, String> clienteCol = new TableColumn<coppia, String>("ID Cliente");
+		TableColumn<Coppia, String> clienteCol = new TableColumn<Coppia, String>("ID Cliente");
 		clienteCol.setMinWidth(30);
 		clienteCol.setCellValueFactory(new PropertyValueFactory<>("idU"));
 
-		TableColumn<coppia, String> nomeCCol = new TableColumn<coppia, String>("Nome Cliente");
+		TableColumn<Coppia, String> nomeCCol = new TableColumn<Coppia, String>("Nome Cliente");
 		nomeCCol.setMinWidth(100);
 		nomeCCol.setCellValueFactory(new PropertyValueFactory<>("nomeU"));
 
-		TableColumn<coppia, String> cognomeCCol = new TableColumn<coppia, String>("Cognome Cliente");
+		TableColumn<Coppia, String> cognomeCCol = new TableColumn<Coppia, String>("Cognome Cliente");
 		cognomeCCol.setMinWidth(100);
 		cognomeCCol.setCellValueFactory(new PropertyValueFactory<>("cognomeU"));
 
@@ -87,10 +87,10 @@ public class ListaImpiantiController {
 			tableImpianti.setItems(tableImpiantiData);
 
 			tableImpianti.setRowFactory(tv -> {
-				TableRow<coppia> row = new TableRow<>();
+				TableRow<Coppia> row = new TableRow<>();
 				row.setOnMouseClicked(event -> {
 					if (!row.isEmpty()) {
-						coppia rowData = row.getItem();
+						Coppia rowData = row.getItem();
 						impiantoSelezionato = rowData;
 						System.out.println(rowData.getI().getNome());
 						goScene(AdminStageController.LISTA_SENSORI);
@@ -115,10 +115,10 @@ public class ListaImpiantiController {
 			tableImpianti.setItems(tableImpiantiData);
 
 			tableImpianti.setRowFactory(tv -> {
-				TableRow<coppia> row = new TableRow<>();
+				TableRow<Coppia> row = new TableRow<>();
 				row.setOnMouseClicked(event -> {
 					if (!row.isEmpty()) {
-						coppia rowData = row.getItem();
+						Coppia rowData = row.getItem();
 						impiantoSelezionato = rowData;
 						System.out.println(rowData.getI().getNome());
 						goScene(AdminStageController.MODIFICA_IMPIANTO);
@@ -142,10 +142,10 @@ public class ListaImpiantiController {
 			tableImpianti.setItems(tableImpiantiData);
 
 			tableImpianti.setRowFactory(tv -> {
-				TableRow<coppia> row = new TableRow<>();
+				TableRow<Coppia> row = new TableRow<>();
 				row.setOnMouseClicked(event -> {
 					if (!row.isEmpty()) {
-						coppia rowData = row.getItem();
+						Coppia rowData = row.getItem();
 						impiantoSelezionato = rowData;
 						System.out.println(rowData.getI().getNome());
 
@@ -209,9 +209,9 @@ public class ListaImpiantiController {
 	 *            lista contenente il resultset
 	 * @return observable list da mostrare
 	 */
-	private ObservableList<coppia> stampaLista(List<coppia> lista) {
+	private ObservableList<Coppia> stampaLista(List<Coppia> lista) {
 		tableImpiantiData.clear();
-		for (coppia i : lista) {
+		for (Coppia i : lista) {
 			tableImpiantiData.add(i);
 		}
 		return tableImpiantiData;

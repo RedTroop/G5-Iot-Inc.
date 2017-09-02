@@ -12,7 +12,7 @@ import integration.DAO.DaoUtente;
  *
  */
 public class ServizioUtenti implements CRUD<Utente> {
-	private DaoUtente daoUtente = new DaoUtente();
+	private final DaoUtente daoUtente = new DaoUtente();
 
 	@Override
 	public boolean inserisci(Object oggetto) {

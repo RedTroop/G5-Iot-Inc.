@@ -65,7 +65,6 @@ public class NuovoClienteController {
 				ripPassField.setStyle("-fx-border-color: red; -fx-border-width: 1px;");
 			else
 				ripPassField.setStyle("-fx-border-color: null");
-
 		});
 
 		okButton.setOnAction((event) -> {
@@ -122,18 +121,12 @@ public class NuovoClienteController {
 		Pattern pattern = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 		Matcher matcher = pattern.matcher(emailField.getText());
 
-		if (matcher.matches())
-			return true;
-		else
-			return false;
+		return matcher.matches();
 	}
 
 	private boolean checkPass() {
 
-		if (passField.getText().length() >= 8 && passField.getText().equals(ripPassField.getText()))
-			return true;
-		else
-			return false;
+		return (passField.getText().length() >= 8 && passField.getText().equals(ripPassField.getText()));
 	}
 
 }

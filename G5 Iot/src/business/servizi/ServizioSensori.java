@@ -43,7 +43,7 @@ public class ServizioSensori implements CRUD<Sensore> {
 	private final static int CHAR_TIPO = 1; // primi 2 caratteri della
 											// rilevazione
 
-	private DaoSensore daoSensore = new DaoSensore();
+	private final DaoSensore daoSensore = new DaoSensore();
 
 	@Override
 	public boolean inserisci(Object oggetto) {
@@ -93,7 +93,7 @@ public class ServizioSensori implements CRUD<Sensore> {
 	 */
 	private String formattaString(String rilevazione) {
 
-		String format = "";
+		String format = "ERRORE";
 		if (rilevazione.length() > CHAR_DESCRIZIONE) {
 			String descr = rilevazione.substring(rilevazione.length() - CHAR_DESCRIZIONE);
 			if (descr.equalsIgnoreCase(ERRORE)) {
@@ -112,9 +112,7 @@ public class ServizioSensori implements CRUD<Sensore> {
 					format = formattaUS(rilevazione);
 				} else
 					format = "MARCA INESISTENTE";
-			}
-
-			if (descr.equalsIgnoreCase(ANOMALIA)) {
+			} else if (descr.equalsIgnoreCase(ANOMALIA)) {
 				format = format + "  <!!!>";
 			}
 		}

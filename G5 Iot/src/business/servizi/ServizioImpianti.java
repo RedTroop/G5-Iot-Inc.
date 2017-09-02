@@ -4,7 +4,7 @@ import java.util.List;
 
 import business.entita.Impianto;
 import integration.DAO.DaoImpianto;
-import integration.DAO.DaoImpianto.coppia;
+import integration.DAO.DaoImpianto.Coppia;
 
 /**
  * La classe offre servizi per la gestione di un Impianto
@@ -13,7 +13,7 @@ import integration.DAO.DaoImpianto.coppia;
  *
  */
 public class ServizioImpianti implements CRUD<Impianto> {
-	private DaoImpianto daoImpianto = new DaoImpianto();
+	private final DaoImpianto daoImpianto = new DaoImpianto();
 
 	@Override
 	public boolean inserisci(Object oggetto) {
@@ -48,13 +48,13 @@ public class ServizioImpianti implements CRUD<Impianto> {
 		return ret;
 	}
 	
-	public List<coppia> cercaC(String valore) {
-		List<coppia> ret = daoImpianto.cercaC(valore);
+	public List<Coppia> cercaC(String valore) {
+		List<Coppia> ret = daoImpianto.cercaC(valore);
 		return ret;
 	}
 	
-	public List<coppia> visualizzaTuttiC() {
-		List<coppia> ret = daoImpianto.visualizzaTuttiC();
+	public List<Coppia> visualizzaTuttiC() {
+		List<Coppia> ret = daoImpianto.visualizzaTuttiC();
 		return ret;
 	}
 

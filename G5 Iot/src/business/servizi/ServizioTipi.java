@@ -12,7 +12,7 @@ import integration.DAO.DaoTipo;
  *
  */
 public class ServizioTipi implements CRUD<Tipo> {
-	private DaoTipo daoTipo = new DaoTipo();
+	private final DaoTipo daoTipo = new DaoTipo();
 
 	@Override
 	public boolean inserisci(Object oggetto) {
