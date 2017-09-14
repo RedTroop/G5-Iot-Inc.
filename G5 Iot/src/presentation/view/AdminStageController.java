@@ -85,6 +85,9 @@ public class AdminStageController {
 	AnchorPane newLoadedPane;
 	private static final Logger LOGGER = Logger.getLogger(AdminStageController.class.getName());
 
+	/**
+	 * Metodo richiamato prima che lo stage venga caricato
+	 */
 	@FXML
 	public void initialize() {
 

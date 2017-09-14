@@ -57,11 +57,12 @@ public class NuovoClienteController {
 			} else
 				okButton.setDisable(true);
 
-			if (!checkEmail() && !emailField.getText().isEmpty())
+			if (!checkEmail())
 				emailField.setStyle("-fx-border-color: red; -fx-border-width: 1px;");
 			else
 				emailField.setStyle("-fx-border-color: null");
-			if (!checkPass() && !ripPassField.getText().isEmpty())
+
+			if (!checkPass())
 				ripPassField.setStyle("-fx-border-color: red; -fx-border-width: 1px;");
 			else
 				ripPassField.setStyle("-fx-border-color: null");
@@ -113,20 +114,20 @@ public class NuovoClienteController {
 	 *
 	 */
 	private boolean checkNotEmpty() {
-		return !(nomeField.getText().isEmpty() && cognomeField.getText().isEmpty() && emailField.getText().isEmpty()
-				&& passField.getText().isEmpty() && ripPassField.getText().isEmpty());
+		return !(nomeField.getText().isEmpty() || cognomeField.getText().isEmpty() || emailField.getText().isEmpty()
+				|| passField.getText().isEmpty() || ripPassField.getText().isEmpty());
 	}
 
 	private boolean checkEmail() {
 		Pattern pattern = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 		Matcher matcher = pattern.matcher(emailField.getText());
 
-		return matcher.matches();
+		return matcher.matches() && !emailField.getText().isEmpty();
 	}
 
 	private boolean checkPass() {
-
-		return (passField.getText().length() >= 8 && passField.getText().equals(ripPassField.getText()));
+		return (passField.getText().length() >= 8 && passField.getText().equals(ripPassField.getText())
+				&& !ripPassField.getText().isEmpty());
 	}
 
 }

@@ -58,9 +58,8 @@ public class ListaSensoriModificaController {
 	private Label nomeImpianto;
 	@FXML
 	private Button eliminaButton;
-	
-	private static final Logger LOGGER = Logger.getLogger(ListaSensoriModificaController.class.getName());
 
+	private static final Logger LOGGER = Logger.getLogger(ListaSensoriModificaController.class.getName());
 
 	/**
 	 * Inizializza le azioni relative ai pulsanti e riempie la tableview
@@ -214,6 +213,12 @@ public class ListaSensoriModificaController {
 		return tableTipiData;
 	}
 
+	/**
+	 * Carica la scene selezionata
+	 * 
+	 * @param scene
+	 *            scene da caricare
+	 */
 	public void goScene(String scene) {
 		System.out.println("Matteo Lac " + scene);
 		try {

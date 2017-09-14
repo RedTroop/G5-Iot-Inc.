@@ -24,6 +24,9 @@ public class MainApp extends Application {
 
 	private static final Logger LOGGER = Logger.getLogger(MainApp.class.getName());
 
+	/**
+	 * @see javafx.application.Application#start(javafx.stage.Stage)
+	 */
 	@Override
 	public void start(Stage stage) {
 		primaryStage = stage;

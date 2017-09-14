@@ -19,6 +19,11 @@ public class ServizioLogin {
 	private ServizioLogin() {
 	}
 
+	/**
+	 * Restituisce utente loggato
+	 * 
+	 * @return utente loggato
+	 */
 	public static Utente getUtenteLoggato() {
 		return utenteLoggato;
 	}

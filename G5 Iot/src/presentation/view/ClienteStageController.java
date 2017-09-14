@@ -23,6 +23,9 @@ public class ClienteStageController {
 	private Button homeButton;
 	private static final Logger LOGGER = Logger.getLogger(ClienteStageController.class.getName());
 
+	/**
+	 * Metodo richiamato prima che lo stage venga caricato
+	 */
 	@FXML
 	public void initialize() {
 

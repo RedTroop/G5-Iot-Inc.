@@ -7,6 +7,12 @@ package business.entita;
  *
  */
 public class ModelloSensore implements Entita {
+	
+	/**Costruttore di classe
+	 * @param codice identificativo del modello
+	 * @param tipo grandezza misurata
+	 * @param marca nome della marca del sensore
+	 */
 	public ModelloSensore(String codice, String tipo, String marca) {
 		super();
 		this.codice = codice;

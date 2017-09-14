@@ -45,6 +45,9 @@ public class ServizioSensori implements CRUD<Sensore> {
 
 	private final DaoSensore daoSensore = new DaoSensore();
 
+	/**
+	 * @see business.servizi.CRUD#inserisci(java.lang.Object)
+	 */
 	@Override
 	public boolean inserisci(Object oggetto) {
 		boolean ret = false;
@@ -102,7 +105,7 @@ public class ServizioSensori implements CRUD<Sensore> {
 					format = " ---  Errore di trasmissione!  --- ";
 				else if (rilevazione.equalsIgnoreCase(ERR_MALFUNZIONAMENTO))
 					format = " ---  Malfunzionamento sensore!  --- ";
-			} else if (descr.equalsIgnoreCase(SUCCESSO)) {
+			} else if (descr.equalsIgnoreCase(SUCCESSO) || descr.equalsIgnoreCase(ANOMALIA)) {
 				String marca = rilevazione.substring(CHAR_MARCA, CHAR_CODICE);
 				if (marca.equalsIgnoreCase(MARCA_MANDRIOTA)) {
 					format = formattaMA(rilevazione);
@@ -112,8 +115,10 @@ public class ServizioSensori implements CRUD<Sensore> {
 					format = formattaUS(rilevazione);
 				} else
 					format = "MARCA INESISTENTE";
-			} else if (descr.equalsIgnoreCase(ANOMALIA)) {
-				format = format + "  <!!!>";
+
+				if (descr.equalsIgnoreCase(ANOMALIA)) {
+					format = "<!!!>  " + format;
+				}
 			}
 		}
 		return format;
@@ -302,7 +307,7 @@ public class ServizioSensori implements CRUD<Sensore> {
 
 		int val = Integer.parseInt(valore);
 
-		toReturn = ore + ":" + min + "   |   " + giorno + "/" + mese + "/" + anno + "   |   " + segno + val + misura;
+		toReturn = segno + val + misura + "   |   " + ore + ":" + min + "   |   " + giorno + "/" + mese + "/" + anno;
 
 		return toReturn;
 	}

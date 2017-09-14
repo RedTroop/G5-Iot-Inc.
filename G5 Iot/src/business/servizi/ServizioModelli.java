@@ -15,6 +15,9 @@ public class ServizioModelli implements CRUD<ModelloSensore> {
 
 	private final DaoModelloSensore daoModello = new DaoModelloSensore();
 
+	/**
+	 * @see business.servizi.CRUD#inserisci(java.lang.Object)
+	 */
 	@Override
 	public boolean inserisci(Object oggetto) {
 		boolean ret = false;

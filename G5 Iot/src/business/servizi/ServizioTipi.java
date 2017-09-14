@@ -14,6 +14,9 @@ import integration.DAO.DaoTipo;
 public class ServizioTipi implements CRUD<Tipo> {
 	private final DaoTipo daoTipo = new DaoTipo();
 
+	/**
+	 * @see business.servizi.CRUD#inserisci(java.lang.Object)
+	 */
 	@Override
 	public boolean inserisci(Object oggetto) {
 		// TODO Auto-generated method stub

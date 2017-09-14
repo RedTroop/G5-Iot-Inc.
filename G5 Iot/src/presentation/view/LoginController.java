@@ -37,10 +37,13 @@ public class LoginController {
 	private PasswordField password;
 	private static final Logger LOGGER = Logger.getLogger(LoginController.class.getName());
 
+	/**
+	 * Metodo richiamato prima che lo stage venga caricato
+	 */
 	@FXML
 	public void initialize() {
 		loginButt.setOnAction((event) -> {
-			handleClick(event);
+			login(event);
 		});
 
 		loginButt.setTooltip(new Tooltip("Inserisci email e password!"));
@@ -50,7 +53,7 @@ public class LoginController {
 	 * Called when the user clicks on the login button.
 	 */
 	@FXML
-	private void handleClick(ActionEvent event) {
+	private void login(ActionEvent event) {
 		System.out.println("Login: " + email.getText() + ", " + password.getText());
 		boolean isLogin = verificaLogin(email.getText(), password.getText());
 

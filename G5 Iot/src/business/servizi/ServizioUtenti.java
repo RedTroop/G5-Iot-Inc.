@@ -14,6 +14,9 @@ import integration.DAO.DaoUtente;
 public class ServizioUtenti implements CRUD<Utente> {
 	private final DaoUtente daoUtente = new DaoUtente();
 
+	/**
+	 * @see business.servizi.CRUD#inserisci(java.lang.Object)
+	 */
 	@Override
 	public boolean inserisci(Object oggetto) {
 		boolean ret = false;

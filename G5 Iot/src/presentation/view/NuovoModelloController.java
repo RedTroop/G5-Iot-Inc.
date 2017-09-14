@@ -118,6 +118,12 @@ public class NuovoModelloController {
 
 	}
 
+	/**
+	 * Carica la scene selezionata
+	 * 
+	 * @param scene
+	 *            scene da caricare
+	 */
 	public void goScene(String scene) {
 		System.out.println("Matteo Lac " + scene);
 		try {

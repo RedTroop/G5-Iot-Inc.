@@ -48,7 +48,6 @@ public class DaoImpianto implements DAO<Impianto> {
 			query.execute();
 			ret = true;
 
-			conn.close();
 		} catch (SQLException e) {
 			LOGGER.log(Level.WARNING, "Inserimento dell'impianto nel database non riuscito");
 		}
@@ -56,6 +55,10 @@ public class DaoImpianto implements DAO<Impianto> {
 		return ret;
 	}
 
+	
+	/**
+	 * @see integration.DAO.DAO#elimina(java.lang.Object)
+	 */
 	@Override
 	public boolean elimina(Impianto i) {
 		Boolean ret = null;
@@ -70,7 +73,6 @@ public class DaoImpianto implements DAO<Impianto> {
 			query.execute();
 			ret = true;
 
-			conn.close();
 		} catch (SQLException e) {
 			LOGGER.log(Level.WARNING, "Eliminazione dell'impianto nel database non riuscita");
 		}
@@ -89,7 +91,6 @@ public class DaoImpianto implements DAO<Impianto> {
 			result = query.executeQuery();
 			ret = creaLista(result);
 
-			conn.close();
 			result.close();
 		} catch (SQLException e) {
 			LOGGER.log(Level.WARNING, "Accesso al database non riuscito");
@@ -109,7 +110,6 @@ public class DaoImpianto implements DAO<Impianto> {
 			result = query.executeQuery();
 			ret = creaLista(result);
 
-			conn.close();
 			result.close();
 		} catch (SQLException e) {
 			LOGGER.log(Level.WARNING, "Accesso al database non riuscito");
@@ -253,7 +253,6 @@ public class DaoImpianto implements DAO<Impianto> {
 			result = query.executeQuery();
 			ret = creaListaC(result);
 
-			conn.close();
 			result.close();
 		} catch (SQLException e) {
 			LOGGER.log(Level.WARNING, "Accesso al database non riuscito");
@@ -272,7 +271,6 @@ public class DaoImpianto implements DAO<Impianto> {
 			result = query.executeQuery();
 			ret = creaListaC(result);
 
-			conn.close();
 			result.close();
 		} catch (SQLException e) {
 			LOGGER.log(Level.WARNING, "Accesso al database non riuscito");

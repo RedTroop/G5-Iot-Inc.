@@ -48,6 +48,9 @@ public class ListaImpiantiController {
 
 	private static final Logger LOGGER = Logger.getLogger(ListaImpiantiController.class.getName());
 
+	/**
+	 * Metodo richiamato prima che lo stage venga caricato
+	 */
 	@SuppressWarnings("unchecked")
 	@FXML
 	public void initialize() {

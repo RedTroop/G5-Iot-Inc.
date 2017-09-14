@@ -26,6 +26,9 @@ public class DaoTipo implements DAO<Tipo> {
 
 	private static final Logger LOGGER = Logger.getLogger(DaoTipo.class.getName());
 
+	/**
+	 * @see integration.DAO.DAO#inserisci(java.lang.Object)
+	 */
 	@Override
 	public boolean inserisci(Tipo e) {
 		// TODO Auto-generated method stub

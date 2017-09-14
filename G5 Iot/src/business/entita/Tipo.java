@@ -7,6 +7,13 @@ package business.entita;
  *
  */
 public class Tipo implements Entita {
+
+	/**
+	 * Costruttore di classe
+	 * 
+	 * @param tipo
+	 *            grandezza misurata
+	 */
 	public Tipo(String tipo) {
 		this.tipo = tipo;
 	}

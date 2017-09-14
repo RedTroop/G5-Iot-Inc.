@@ -8,6 +8,22 @@ package business.entita;
  */
 public class Utente implements Entita {
 
+	/**
+	 * Costruttore di classe
+	 * 
+	 * @param id
+	 *            identificativo dell'utente
+	 * @param nome
+	 *            nome dell'utente
+	 * @param cognome
+	 *            cognome dell'utente
+	 * @param email
+	 *            email dell'utente
+	 * @param password
+	 *            password di login dell'utente
+	 * @param admin
+	 *            0 se l'utente è un Cliente, 1 se l'utente è un Admin
+	 */
 	public Utente(String id, String nome, String cognome, String email, String password, String admin) {
 		this.id = id;
 		this.nome = nome;

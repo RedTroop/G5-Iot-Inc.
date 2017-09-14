@@ -6,6 +6,10 @@ package business.entita;
  */
 public class Impianto implements Entita {
 	
+	/**Costruttore di classe
+	 * @param nome nome dell'impianto
+	 * @param cliente cliente a cui appartiene l'impianto
+	 */
 	public Impianto(String nome, String cliente) {
 		this("", nome, cliente);
 	}

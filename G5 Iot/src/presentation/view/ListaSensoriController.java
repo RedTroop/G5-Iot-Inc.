@@ -42,6 +42,9 @@ public class ListaSensoriController {
 	@FXML
 	private MenuButton menuFiltro;
 
+	/**
+	 * Metodo richiamato prima che lo stage venga caricato
+	 */
 	@SuppressWarnings("unchecked")
 	public void initialize() {
 

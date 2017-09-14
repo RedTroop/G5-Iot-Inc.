@@ -44,9 +44,8 @@ public class ListaModelliController {
 	private AnchorPane newLoadedPane;
 	@FXML
 	private AnchorPane content;
-	
-	private static final Logger LOGGER = Logger.getLogger(ListaModelliController.class.getName());
 
+	private static final Logger LOGGER = Logger.getLogger(ListaModelliController.class.getName());
 
 	/**
 	 * Inizializza le azioni relative ai pulsanti e riempie la tableview
@@ -117,6 +116,12 @@ public class ListaModelliController {
 
 	}
 
+	/**
+	 * Carica la scene selezionata
+	 * 
+	 * @param scene
+	 *            scene da caricare
+	 */
 	public void goScene(String scene) {
 		System.out.println("Matteo Lac " + scene);
 		try {

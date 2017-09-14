@@ -29,6 +29,9 @@ public class DaoUtente implements DAO<Utente> {
 
 	private static final Logger LOGGER = Logger.getLogger(DaoSensore.class.getName());
 
+	/**
+	 * @see integration.DAO.DAO#inserisci(java.lang.Object)
+	 */
 	@Override
 	public boolean inserisci(Utente u) {
 		boolean ret = false;
@@ -44,7 +47,6 @@ public class DaoUtente implements DAO<Utente> {
 
 			ret = true;
 
-			conn.close();
 		} catch (SQLException e) {
 			LOGGER.log(Level.WARNING, "Inserimento del sensore nel database non riuscito");
 		}
@@ -68,7 +70,6 @@ public class DaoUtente implements DAO<Utente> {
 			result = query.executeQuery();
 			ret = creaLista(result);
 
-			conn.close();
 		} catch (SQLException e) {
 			LOGGER.log(Level.WARNING, "Accesso al database non riuscito");
 		}
@@ -86,7 +87,6 @@ public class DaoUtente implements DAO<Utente> {
 			result = query.executeQuery();
 			ret = creaLista(result);
 
-			conn.close();
 		} catch (SQLException e) {
 			LOGGER.log(Level.WARNING, "Accesso al database non riuscito");
 		}

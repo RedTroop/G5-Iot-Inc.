@@ -8,6 +8,20 @@ package business.entita;
  */
 public class Sensore implements Entita {
 
+	/**
+	 * Costruttore di classe
+	 * 
+	 * @param id
+	 *            identificativo del sensore
+	 * @param modello
+	 *            identificativo del modello
+	 * @param impianto
+	 *            id dell'impianto in cui si trova il sensore
+	 * @param rilevazione
+	 *            valore, unità di misura, ora e data della rilevazione
+	 * @param tipo
+	 *            grandezza misurata
+	 */
 	public Sensore(String id, String modello, String impianto, String rilevazione, String tipo) {
 		this.id = id;
 		this.modello = modello;
